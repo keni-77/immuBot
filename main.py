@@ -109,9 +109,6 @@ def run_discord_bot():
         # 17番目の if ブロック
         if content == 'one one four five one four' or content == 'one one four five! one four!' or content == 'one one four five one four!':
             await message.channel.send('い～よ、こいよ♪')
-            
-        if (message.content.includes("Discord")):
-            await message.channel.send('テスト')
 
         if content == 'あいうえお':
             await message.channel.send('テスメ゙')
