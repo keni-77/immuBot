@@ -110,8 +110,8 @@ def run_discord_bot():
         if content == 'one one four five one four' or content == 'one one four five! one four!' or content == 'one one four five one four!':
             await message.channel.send('い～よ、こいよ♪')
 
-        if content == 'あいうえお':
-            await message.channel.send('テスメ゙')
+        if content == 'そうだよ' or content == 'そうだよ（便乗）' or content == 'そうだよ！' or content == 'そうだよ!':
+            await message.channel.send('そうだよ（便乗）見たけりゃみせてやるよ')
             
     # --- Botの実行 ---
     if TOKEN:
