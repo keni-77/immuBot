@@ -111,7 +111,7 @@ def run_discord_bot():
             await message.channel.send('い～よ、こいよ♪')
 
         if content == 'そうだよ' or content == 'そうだよ（便乗）' or content == 'そうだよ！' or content == 'そうだよ!':
-            await message.channel.send('そうだよ（便乗）見たけりゃみせてやるよ')
+            await message.channel.send('そうだよ（便乗）、見たけりゃみせてやるよ！')
             
     # --- Botの実行 ---
     if TOKEN:
