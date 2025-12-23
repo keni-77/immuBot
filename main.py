@@ -99,7 +99,7 @@ def run_discord_bot():
             await message.channel.send('YAJU&U！')
             
         # 16番目の if ブロック
-        if content == 'YAJU' in content:
+        if 'YAJU' in content:
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
             
         # 17番目の if ブロック
@@ -108,8 +108,11 @@ def run_discord_bot():
 
         if 'そうだよ' in content or 'そだよ' in content:
             await message.channel.send('そうだよ（便乗）')
+            
         if 'ますね' in content or 'マスネ' in content or 'ﾏｽﾈ' in content:
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
+        if content == 'いいよ' or content == 'いいよ！' or content == 'いいよ!':
+            await message.channel.send('こいよ！')
     
     # --- Botの実行 ---
     if TOKEN:
