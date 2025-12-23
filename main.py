@@ -71,8 +71,8 @@ def run_discord_bot():
         if '191919' in content or 'いくいくいく' in content or '１９１９１９' in content:
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
             
-        if 'これもうわかんね' in content:
-            await message.channel.send('このへんがセクシー♪')
+        if 'これもう' in content and 'な' in content:
+            await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
             
         if content == 'エロい' or content == 'えろい':
             await message.channel.send('暴れんなよ♪')
