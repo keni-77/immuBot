@@ -105,7 +105,7 @@ def run_discord_bot():
         elif '真夏' in content:
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
         if 'ワイ' in content:
-            await message.channel.send('<@1273962567642910733>, 黙れ')
+            await message.channel.send('<@1273962567642910733> 黙れ')
     
     # --- Botの実行 ---
     if TOKEN:
