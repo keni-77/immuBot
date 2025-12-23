@@ -43,7 +43,7 @@ def run_discord_bot():
         content = message.content
 
         # 最初の長い if ブロック
-        if content == 'ンァーッ' or content == 'んぁーっ' or content == 'ﾝｧｰｯ' or content == 'んぁーっ！' or content == 'ンァーッ！' or content == 'ﾝｧｰｯ！' or content == 'ﾝｧｰｯ!' or content == 'ｱｰｲｷｿ' or 'それいいよ' in content == 'あーソレいいよ' or content == 'ああそれいいよ' or content == 'ああソレいいよ' or content == 'ああーそれいいよ' or content == 'ああーソレいいよ' or content == 'やりますね～' or content == 'やりますねぇ～' or content == 'やりますねえ～' or content == 'やりますね～！' or content == 'やりますねぇ～！' or content == 'やりますねえ～！' or content == 'ヤリマスネ' or content == 'ﾔﾘﾏｽﾈ' or content == 'ヤリマスネ！' or content == 'ﾔﾘﾏｽﾈ！' or content == 'ヤリマスネェ' or content == 'ﾔﾘﾏｽﾈｪ' or content == 'ヤリマスネエ' or content == 'ﾔﾘﾏｽﾈｴ' or content == 'ヤリマスネェ！' or content == 'ﾔﾘﾏｽﾈｪ！' or content == 'ﾔﾘﾏｽﾈｪ!' or content == 'ヤリマスネエ！' or content == 'ﾔﾘﾏｽﾈｴ！' or content == 'ﾔﾘﾏｽﾈｪ!':
+        if content == 'ンァーッ' or content == 'んぁーっ' or content == 'ﾝｧｰｯ' or content == 'んぁーっ！' or content == 'ンァーッ！' or content == 'ﾝｧｰｯ！' or content == 'ﾝｧｰｯ!' or content == 'ｱｰｲｷｿ' or 'それいいよ' in content or 'ソレいいよ' in content or 'マスネ' in content or 'ﾏｽﾈ' in content:
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
             
         # 2番目の if ブロック
