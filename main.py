@@ -51,7 +51,7 @@ def run_discord_bot():
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
             
         # 3番目の if ブロック 
-        if content == '114514' or content == 'いきすぎい' or content == 'イキスギイ' or content == 'いきすぎい！' or content == 'イキスギイ！' or content == 'いきすぎ' or content == 'イキスギ' or content == 'ｲｷｽｷﾞ' or content == 'いきすぎ！' or content == 'イキスギ！' or content == 'ｲｷｽｷﾞ！' or content == 'ｲｷｽｷﾞ!':
+        if '114514' in content:
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
             
         # 4番目の if ブロック
@@ -75,7 +75,7 @@ def run_discord_bot():
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
             
         # 10番目の if ブロック
-        if content == '191919' or content == 'いくいくいく' or content == '１９１９１９' or 'ｲｷｽｷﾞ' in content or 'イキスギ' in content or 'いいよこいよ' in content or content == 'いいよ！こいよ！' or content == 'いいよ、こいよ！':
+        if content == '191919' or content == 'いくいくいく' or content == '１９１９１９' or 'ｲｷｽｷﾞ' in content or 'イキスギ' in content or content == 'いいよ！こいよ！' or content == 'いいよ、こいよ！':
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
             
         # 11番目の if ブロック
@@ -88,7 +88,7 @@ def run_discord_bot():
             
         # 13番目の if ブロック
         if 'アイスティ' in content:
-            await message.channel.send('これもうわかんねえな')
+            await message.channel.send('これもうわかんねぇな')
             
         # 14番目の if ブロック
         if '多少は' in content:
