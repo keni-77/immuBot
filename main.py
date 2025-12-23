@@ -42,59 +42,47 @@ def run_discord_bot():
         
         content = message.content
 
-        # 最初の長い if ブロック
         if 'ンァ' in content or 'んぁ' in content or 'ﾝｧ' in content or 'いきそ' in content or 'イキソ' or 'ｲｷｿ' in content or 'それいいよ' in content or 'ソレいいよ' in content:
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
             
-        # 2番目の if ブロック
         if 'いいよ' in content and 'こいよ' in content:
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
-            
-        # 3番目の if ブロック 
+        elif 'いいよ' in content:
+            await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
+             
         if '114514' in content:
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
             
-        # 4番目の if ブロック
         if content == '１１４５１４' or '下北沢' in content:
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
             
-        # 5番目の if ブロック
         if 'あくしろよ' in content:
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
             
-        # 6番目の if ブロック
         if '頭に来ますよ' in content:
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
             
-        # 8番目の if ブロック
         if '810' in content or '８１０' in content:
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
             
-        # 9番目の if ブロック
         if '野獣' in content or 'やじゅう' in content or 'いきすぎ' in content or 'イキスギ' in content or 'ｲｷｽｷﾞ' in content or '田所' in content or '364' in content or '３６４' in content or 'みろよ' in content or '見ろよ' in content or 'いんみゅ' in content or '淫夢' in content or '真夏' in content or 'インミュ' in content:
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
             
-        # 10番目の if ブロック
         if '191919' in content or 'いくいくいく' in content or '１９１９１９' in content:
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
             
-        # 11番目の if ブロック
         if 'これもうわかんね' in content:
             await message.channel.send('このへんがセクシー♪')
             
-        # 12番目の if ブロック
         if content == 'エロい' or content == 'えろい':
             await message.channel.send('暴れんなよ♪')
             
-        # 13番目の if ブロック
         if 'アイスティ' in content:
             await message.channel.send('これもうわかんねぇな')
             
-        # 14番目の if ブロック
         if '多少は' in content:
             await message.channel.send('まあ多少はね？')
             
-        # 15番目の if ブロック
         if 'すここい歌' in content:
             await message.channel.send('YAJU&U！')
             
@@ -103,7 +91,7 @@ def run_discord_bot():
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
             
         # 17番目の if ブロック
-        if 'one one four five one four' in content or content == 'one one four five! one four!':
+        if 'one one four five one four' in content:
             await message.channel.send('いいよこいよ♪')
 
         if 'そうだよ' in content or 'そだよ' in content:
