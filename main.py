@@ -89,7 +89,7 @@ def run_discord_bot():
         if 'YAJU' in content:
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
 
-        if 'one one four five one four' in content:
+        if 'one one four five one four' in content and 'one four' in content:
             await message.channel.send('いいよこいよ♪')
 
         if 'そうだよ' in content or 'そだよ' in content:
