@@ -48,7 +48,7 @@ def run_discord_bot():
         if 'いいよ' in content and 'こいよ' in content:
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
         elif 'いいよ' in content:
-            await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
+            await message.channel.send('こいよ！')
              
         if '114514' in content:
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
