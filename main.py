@@ -47,7 +47,7 @@ def run_discord_bot():
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
             
         # 2番目の if ブロック
-        if 'いいよこいよ' in content:
+        if 'いいよ' in content and 'こいよ' in content:
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
             
         # 3番目の if ブロック 
@@ -71,11 +71,11 @@ def run_discord_bot():
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
             
         # 9番目の if ブロック
-        if '野獣' in content or 'やじゅう' in content or 'いきすぎ' in content or 'イキスギ' in content or 'ｲｷｽｷﾞ' in content or '田所' in content or '364' in content or '３６４' in content or 'みろよ' in content or '見ろよ' in content or 'いんみゅ' in content or '淫夢' in content or '真夏' in content:
+        if '野獣' in content or 'やじゅう' in content or 'いきすぎ' in content or 'イキスギ' in content or 'ｲｷｽｷﾞ' in content or '田所' in content or '364' in content or '３６４' in content or 'みろよ' in content or '見ろよ' in content or 'いんみゅ' in content or '淫夢' in content or '真夏' in content or 'インミュ' in content:
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
             
         # 10番目の if ブロック
-        if content == '191919' or content == 'いくいくいく' or content == '１９１９１９' or 'ｲｷｽｷﾞ' in content or 'イキスギ' in content or content == 'いいよ！こいよ！' or content == 'いいよ、こいよ！':
+        if '191919' in content or 'いくいくいく' in content or '１９１９１９' in content:
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
             
         # 11番目の if ブロック
