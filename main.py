@@ -43,19 +43,19 @@ def run_discord_bot():
         content = message.content
 
         # 最初の長い if ブロック
-        if content == 'やりますねぇ' or content == 'ンァーッ' or content == 'んぁーっ' or content == 'ﾝｧｰｯ' or content == 'んぁーっ！' or content == 'ンァーッ！' or content == 'ﾝｧｰｯ！' or content == 'ﾝｧｰｯ!' or content == 'ｱｰｲｷｿ' or content == 'あーそれいいよ' or content == 'あーソレいいよ' or content == 'ああそれいいよ' or content == 'ああソレいいよ' or content == 'ああーそれいいよ' or content == 'ああーソレいいよ' or content == 'やりますね～' or content == 'やりますねぇ～' or content == 'やりますねえ～' or content == 'やりますね～！' or content == 'やりますねぇ～！' or content == 'やりますねえ～！' or content == 'ヤリマスネ' or content == 'ﾔﾘﾏｽﾈ' or content == 'ヤリマスネ！' or content == 'ﾔﾘﾏｽﾈ！' or content == 'ヤリマスネェ' or content == 'ﾔﾘﾏｽﾈｪ' or content == 'ヤリマスネエ' or content == 'ﾔﾘﾏｽﾈｴ' or content == 'ヤリマスネェ！' or content == 'ﾔﾘﾏｽﾈｪ！' or content == 'ﾔﾘﾏｽﾈｪ!' or content == 'ヤリマスネエ！' or content == 'ﾔﾘﾏｽﾈｴ！' or content == 'ﾔﾘﾏｽﾈｪ!':
+        if content == 'ンァーッ' or content == 'んぁーっ' or content == 'ﾝｧｰｯ' or content == 'んぁーっ！' or content == 'ンァーッ！' or content == 'ﾝｧｰｯ！' or content == 'ﾝｧｰｯ!' or content == 'ｱｰｲｷｿ' or 'それいいよ' in content == 'あーソレいいよ' or content == 'ああそれいいよ' or content == 'ああソレいいよ' or content == 'ああーそれいいよ' or content == 'ああーソレいいよ' or content == 'やりますね～' or content == 'やりますねぇ～' or content == 'やりますねえ～' or content == 'やりますね～！' or content == 'やりますねぇ～！' or content == 'やりますねえ～！' or content == 'ヤリマスネ' or content == 'ﾔﾘﾏｽﾈ' or content == 'ヤリマスネ！' or content == 'ﾔﾘﾏｽﾈ！' or content == 'ヤリマスネェ' or content == 'ﾔﾘﾏｽﾈｪ' or content == 'ヤリマスネエ' or content == 'ﾔﾘﾏｽﾈｴ' or content == 'ヤリマスネェ！' or content == 'ﾔﾘﾏｽﾈｪ！' or content == 'ﾔﾘﾏｽﾈｪ!' or content == 'ヤリマスネエ！' or content == 'ﾔﾘﾏｽﾈｴ！' or content == 'ﾔﾘﾏｽﾈｪ!':
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
             
         # 2番目の if ブロック
         if content == 'いいよこいよ' or content == 'んぁー' or content == 'ンァー' or content == 'ﾝｧｰ' or content == 'ﾝｧー' or content == 'ンァｰ' or content == 'んぁｰ' or content == 'ﾝｧｰ！' or content == 'ﾝｧｰ!':
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
             
-        # 3番目の elif ブロック (元のコードでここだけ elif)
-        elif content == '114514' or content == 'いきすぎい' or content == 'イキスギイ' or content == 'いきすぎい！' or content == 'イキスギイ！' or content == 'いきすぎ' or content == 'イキスギ' or content == 'ｲｷｽｷﾞ' or content == 'いきすぎ！' or content == 'イキスギ！' or content == 'ｲｷｽｷﾞ！' or content == 'ｲｷｽｷﾞ!':
+        # 3番目の if ブロック 
+        if content == '114514' or content == 'いきすぎい' or content == 'イキスギイ' or content == 'いきすぎい！' or content == 'イキスギイ！' or content == 'いきすぎ' or content == 'イキスギ' or content == 'ｲｷｽｷﾞ' or content == 'いきすぎ！' or content == 'イキスギ！' or content == 'ｲｷｽｷﾞ！' or content == 'ｲｷｽｷﾞ!':
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
             
         # 4番目の if ブロック
-        if content == '１１４５１４' or content =='下北沢' or content == '下北沢大学' or content == '下北沢大学！' or content == '下北沢大学!' or content == '下北沢大学？' or content == '下北沢大学?' or content == '下北沢！' or content == '下北沢!':
+        if content == '１１４５１４' or '下北沢' in content:
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
             
         # 5番目の if ブロック
