@@ -59,7 +59,7 @@ def run_discord_bot():
         if 'あくしろよ' in content:
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
             
-        if '頭に来ますよ' in content:
+        if '頭に来ますよ' in content or '頭にきますよ' in content:
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
             
         if '810' in content or '８１０' in content:
