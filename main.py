@@ -42,7 +42,7 @@ def run_discord_bot():
         
         content = message.content
 
-        if 'ンァ' in content or 'んぁ' in content or 'ﾝｧ' in content or 'いきそ' in content or 'イキソ' in content or 'ｲｷｿ' in content or 'それいいよ' in content or 'ソレいいよ' in content:
+        if 'ンァ' in content or 'んぁ' in content or 'ﾝｧ' in content or 'んあ' in content or 'ンア' in content or 'ﾝｱ' in content or 'いきそ' in content or 'イキソ' in content or 'ｲｷｿ' in content or 'それいいよ' in content or 'ソレいいよ' in content:
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
             
         if 'いいよ' in content and 'こいよ' in content:
