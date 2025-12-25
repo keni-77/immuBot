@@ -109,13 +109,14 @@ def run_discord_bot():
         if 'command' in content:
             await message.channel.send('コマンドは応答しませんでした⚠')
         if '必殺' in content and '発動' in content:
-            await message.channel.send('**ヌゥン！ヘッ！ヘッ！**
+            await message.channel.send('''必殺！野獣の咆哮！
+**ヌゥン！ヘッ！ヘッ！**
 **ア゛ア゛ア゛ア゛ァ゛ァ゛ァ゛ァ゛**
 **ア゛↑ア゛↑ア゛↑ア゛↑ア゛ア゛ア゛ァ゛ァ゛ァ゛ァ゛！！！！**
 **ウ゛ア゛ア゛ア゛ア゛ア゛ア゛ァ゛ァ゛ァ゛ァ゛ァ゛ァ゛ァ！！！！！**
 **フ ウ゛ウ゛ウ゛ゥ゛ゥ゛ゥ゛ン！！！！**
 **フ ウ゛ゥ゛ゥ゛ゥン！！！！(大迫真)**
-***（※音量注意）***')
+***（※音量注意）***''')
     
     # --- Botの実行 ---
     if TOKEN:
