@@ -106,6 +106,8 @@ def run_discord_bot():
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
         if 'ワイ' in content or 'イッチ' in content or 'pixiv' in content or '皆さんご一緒に' in content or '次回にかける' in content:
             await message.channel.send('<@1273962567642910733> 黙れ')
+        if 'command' in content:
+            await message.channel.send.reply('コマンドは応答しませんでした⚠')
     
     # --- Botの実行 ---
     if TOKEN:
