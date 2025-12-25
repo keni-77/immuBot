@@ -80,7 +80,7 @@ def run_discord_bot():
         if 'アイスティ' in content:
             await message.channel.send('これもうわかんねぇな')
             
-        if '多少は' in content:
+        if '多少' in content:
             await message.channel.send('まあ多少はね？')
             
         if 'すここい歌' in content:
