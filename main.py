@@ -17,6 +17,7 @@ bot_start_attempted = False
 def run_discord_bot():
     global bot_start_attempted
 
+    tanimura = ['黙れ', 'おい、谷村　姿勢正せ（山田風）']
     # 環境変数からトークンを取得
     TOKEN = os.getenv("DISCORD_TOKEN")
     
@@ -104,10 +105,10 @@ def run_discord_bot():
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
         elif '真夏' in content:
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
+
         if 'ワイ' in content or 'イッチ' in content or 'pixiv' in content or '皆さんご一緒に' in content or '次回にかける' in content:
-            tanimuramessage = ['黙れ', 'おい、谷村　姿勢正せ（山田風）']
-            choice = random.choice(tanimuramessage)
-            await message.channel.send('<@1273962567642910733>', choice)
+            response = random.choice(tanimura)
+            await message.channel.send(f'<@1273962567642910733> {response}')
         if 'command' in content:
             await message.channel.send('コマンドは応答しませんでした⚠')
         if '必殺' in content and '発動' in content:
