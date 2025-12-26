@@ -106,7 +106,7 @@ def run_discord_bot():
         elif '真夏' in content:
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
 
-        if 'ワイ' in content or 'イッチ' in content or 'pixiv' in content or '次回にかける' in content:
+        if 'ワイ' in content or 'イッチ' in content or 'pixiv' in content or '次回にかける' in content or 'ジョジョ' in content:
             response = random.choice(tanimura)
             await message.channel.send(f'<@1273962567642910733> {response}')
         if '皆さん' in content and '一緒に' in content:
