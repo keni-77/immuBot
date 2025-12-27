@@ -95,7 +95,7 @@ def run_discord_bot():
 
         if 'そうだよ' in content or 'そだよ' in content:
             await message.channel.send('''そうだよ（便乗）
-            https://tenor.com/XrM8.gif''')
+https://tenor.com/XrM8.gif''')
             
         if 'ますね' in content or 'マスネ' in content or 'ﾏｽﾈ' in content:
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
