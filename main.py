@@ -56,7 +56,7 @@ def run_discord_bot():
             await message.channel.send('やりますねぇ！やりますやります')
         if '痛い' in content:
             await message.channel.send('痛いですねこれは痛い（冷静）')
-        if '王道' in content and ('ゆく' in content or '征く' in content) :
+        if '王道' in content and ('ゆく' in content or '征く' in content):
             if 'ソープ' in content:
                 await message.channel.send('（王者の風格）')
             else:
