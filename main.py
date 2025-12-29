@@ -35,17 +35,11 @@ def run_discord_bot():
     async def on_message(message):
         if message.author == client.user:
             return
-
-        # ここから下の if/elif ロジックは元のコードから完全に移植されています
-        
-        # 応答メッセージが大量にあるため、処理効率を考慮し、
-        # 元のコードの if, if, elif, if... の構造を可能な限り再現します。
         
         content = message.content
 
         if 'ンァ' in content or 'んぁ' in content or 'ﾝｧ' in content or 'んあ' in content or 'ンア' in content or 'ﾝｱ' in content or 'いきそ' in content or 'イキソ' in content or 'ｲｷｿ' in content or 'それいいよ' in content or 'ソレいいよ' in content or 'KMR' in content 'MUR' in content or '下北沢' in content or '114514' in content or '１１４５１４' in content or 'くしろよ' in content or '810' in content or '８１０' in content or '野獣' in content or 'やじゅう' in content or 'いきすぎ' in content or 'イキスギ' in content or 'ｲｷｽｷﾞ' in content or '田所' in content or '364' in content or '３６４' in content or 'みろよ' in content or '見ろよ' in content or 'いんみゅ' in content or 'インミュ' in content or '191919' in content or 'いくいくいく' in content or '１９１９１９' in content or 'ますね' in content or 'マスネ' in content or 'ﾏｽﾈ' in content:
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
-            
         if 'いいよ' in content and 'こいよ' in content:
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
         elif 'いいよ' in content and 'それ' not in content and 'ソレ' not in content:
@@ -55,12 +49,12 @@ def run_discord_bot():
         if '頭' in content and 'ますよ' in content:
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
         if 'この' in content and ('辺' in content or 'へん' in content) and 'が' in content and ('セ' in content or 's' in content or 'S' in content):
-            await message.channel.send('エロい')
+            await message.channel.send('エロい♪')
         if 'れんなよ' in content:
             await message.channel.send('お前のことがッ！好きだったんだよ！！！')
         if 'これもう' in content and 'な' in content:
             await message.channel.send('この辺がSexy！')
-        if content == 'エロい' or content == 'えろい':
+        if 'エロい' in content or 'えろい' in content:
             await message.channel.send('暴れんなよ♪')
         if 'アイスティ' in content:
             await message.channel.send('これもう...わかんねぇな')
