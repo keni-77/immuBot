@@ -38,16 +38,14 @@ def run_discord_bot():
         
         content = message.content
 
-        if 'ンァ' in content or 'んぁ' in content or 'ﾝｧ' in content or 'んあ' in content or 'ンア' in content or 'ﾝｱ' in content or 'いきそ' in content or 'イキソ' in content or 'ｲｷｿ' in content or 'それいいよ' in content or 'ソレいいよ' in content or 'KMR' in content or 'MUR' in content or '下北沢' in content or '114514' in content or '１１４５１４' in content or 'くしろよ' in content or '810' in content or '８１０' in content or '野獣' in content or 'やじゅう' in content or 'いきすぎ' in content or 'イキスギ' in content or 'ｲｷｽｷﾞ' in content or '田所' in content or '364' in content or '３６４' in content or 'みろよ' in content or '見ろよ' in content or '191919' in content or 'いくいくいく' in content or '１９１９１９' in content or 'ますね' in content or 'マスネ' in content or 'ﾏｽﾈ' in content or '淫夢' in content or 'いんむ' in content or 'いんみゅ' in content or 'インミュ' in content or '真夏' in content or 'まなつ' in content or 'おなしゃす' in content or 'オナシャス' in content:
+        if 'ンァ' in content or 'んぁ' in content or 'ﾝｧ' in content or 'んあ' in content or 'ンア' in content or 'ﾝｱ' in content or 'いきそ' in content or 'イキソ' in content or 'ｲｷｿ' in content or 'それいいよ' in content or 'ソレいいよ' in content or 'KMR' in content or 'MUR' in content or 'TDN' in content or 'TON' in content or 'HTN' in content or 'DB' in content or 'TNOK' in content or 'DRVS' in content or 'NSOK' in content or 'KBTIT' in content or '下北沢' in content or '114514' in content or '１１４５１４' in content or 'くしろよ' in content or '810' in content or '８１０' in content or '野獣' in content or 'やじゅう' in content or 'いきすぎ' in content or 'イキスギ' in content or 'ｲｷｽｷﾞ' in content or '田所' in content or '364' in content or '３６４' in content or 'みろよ' in content or '見ろよ' in content or '191919' in content or 'いくいくいく' in content or '１９１９１９' in content or 'ますね' in content or 'マスネ' in content or 'ﾏｽﾈ' in content or '淫夢' in content or 'いんむ' in content or 'いんみゅ' in content or 'インミュ' in content or '真夏' in content or 'まなつ' in content or 'おなしゃす' in content or 'オナシャス' in content or 'せんせんしゃ' in content or 'センセンシャ' in content or '菅野美穂' in content or 'カンノミホ' in content or 'かんのみほ' in content or 'でますよ' in content or '出ますよ' in content or 'くいあらためて' in content or '悔い改めて' in content or '見とけよ' in content or 'みとけよ' in content or 'まずいですよ' in content or '小並感' in content:
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
         if 'いいよ' in content and 'こいよ' in content:
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
         elif 'いいよ' in content and 'それ' not in content and 'ソレ' not in content:
             await message.channel.send('こいよ！')
-        if 'じゃけん' in content and 'ましょう' in content:
-            await message.channel.send('おっ、そうだな')
         if 'みたいな' in content or '見たいな' in content:
-            await message.channel.send('見たけりゃ見せてやるよ！')
+            await message.channel.send('見たけりゃ見せてやるよ！（震え声）')
         if ('みて' in content or '見て' in content) and 'ない' in content:
             await message.channel.send('嘘つけ絶対見てたゾ')
         if '頭' in content and 'ますよ' in content:
@@ -60,9 +58,15 @@ def run_discord_bot():
             await message.channel.send('痛いですねこれは痛い（冷静）')
         if '王道' in content and ('ゆく' in content or '征く' in content) :
             if 'ソープ' in content:
-                await message.chennel.send('（王者の風格）')
+                await message.channel.send('（王者の風格）')
             else:
                 await message.channel.send('ソープ系ですか')
+        if 'じゃけん' in content and 'ましょう' in content:
+            await message.channel.send('おっ、そうだな（適当）')
+        if 'お' in content and 'そうだな' in content:
+            await message.channel.send('あっそうだ　おいKMRァ！（唐突）')
+        if 'あ' in content and 'そうだ' in content:
+            await message.channel.send('おいKMRァ！（唐突）')
         if 'お待たせ' in content or 'おまたせ' in content:
             await message.channel.send('アイスティしかなかったんだけどいいかな？')
         if 'どういう' in content and 'が' in content and 'ですか？' in content:
@@ -82,7 +86,7 @@ def run_discord_bot():
             await message.channel.send('まあ、多少はね？')
         if 'すここい歌' in content:
             await message.channel.send('YAJU&U！')
-        if 'YAJU' in content and ('&' in content or '＆' in content) and 'U' in content:
+        if 'YAJU' in content and ('&' in content or '＆' in content) and 'U' in content or ('24歳' in content or '２４歳' in content) and '学生' in content:
             await message.channel.send('野獣先輩♪')
         if 'one one four five' in content and 'one four' in content:
             await message.channel.send('いいよ♪こいよ♪')
