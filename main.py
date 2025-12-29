@@ -45,7 +45,7 @@ def run_discord_bot():
         elif 'いいよ' in content and 'それ' not in content and 'ソレ' not in content:
             await message.channel.send('こいよ！')
         if 'じゃけん' in content and 'ましょうね' in content:
-            await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
+            await message.channel.send('お、そうだな')
         if '頭' in content and 'ますよ' in content:
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
         if 'この' in content and ('辺' in content or 'へん' in content) and 'が' in content and ('セ' in content or 's' in content or 'S' in content):
