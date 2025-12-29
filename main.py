@@ -71,7 +71,7 @@ def run_discord_bot():
         if 'YAJU' in content and ('&' in content or '＆' in content) and 'U' in content:
             await message.channel.send('野獣先輩♪')
         if 'one one four five' in content and 'one four' in content:
-            await message.channel.send('いいよ、こいよ♪')
+            await message.channel.send('いいよ♪こいよ♪')
         if 'そうだよ' in content or 'そだよ' in content or 'そうですよ' in content:
             await message.channel.send('''そうだよ（便乗）
 https://tenor.com/XrM8.gif''')
