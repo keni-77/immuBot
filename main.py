@@ -38,7 +38,7 @@ def run_discord_bot():
         
         content = message.content
 
-        if 'ンァ' in content or 'んぁ' in content or 'ﾝｧ' in content or 'んあ' in content or 'ンア' in content or 'ﾝｱ' in content or 'いきそ' in content or 'イキソ' in content or 'ｲｷｿ' in content or 'それいいよ' in content or 'ソレいいよ' in content or 'KMR' in content or 'MUR' in content or '下北沢' in content or '114514' in content or '１１４５１４' in content or 'くしろよ' in content or '810' in content or '８１０' in content or '野獣' in content or 'やじゅう' in content or 'いきすぎ' in content or 'イキスギ' in content or 'ｲｷｽｷﾞ' in content or '田所' in content or '364' in content or '３６４' in content or 'みろよ' in content or '見ろよ' in content or 'いんみゅ' in content or 'インミュ' in content or '191919' in content or 'いくいくいく' in content or '１９１９１９' in content or 'ますね' in content or 'マスネ' in content or 'ﾏｽﾈ' in content:
+        if 'ンァ' in content or 'んぁ' in content or 'ﾝｧ' in content or 'んあ' in content or 'ンア' in content or 'ﾝｱ' in content or 'いきそ' in content or 'イキソ' in content or 'ｲｷｿ' in content or 'それいいよ' in content or 'ソレいいよ' in content or 'KMR' in content or 'MUR' in content or '下北沢' in content or '114514' in content or '１１４５１４' in content or 'くしろよ' in content or '810' in content or '８１０' in content or '野獣' in content or 'やじゅう' in content or 'いきすぎ' in content or 'イキスギ' in content or 'ｲｷｽｷﾞ' in content or '田所' in content or '364' in content or '３６４' in content or 'みろよ' in content or '見ろよ' in content or '191919' in content or 'いくいくいく' in content or '１９１９１９' in content or 'ますね' in content or 'マスネ' in content or 'ﾏｽﾈ' in content or '淫夢' in content or 'いんむ' in content or 'いんみゅ' in content or 'インミュ' in content or '真夏' in content or 'まなつ' in content:
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
         if 'いいよ' in content and 'こいよ' in content:
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
@@ -52,6 +52,20 @@ def run_discord_bot():
             await message.channel.send('嘘つけ絶対見てたゾ')
         if '頭' in content and 'ますよ' in content:
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
+        if 'ありますか' in content:
+            await message.chennel.send('ありますあります')
+        if 'とかって' in content or 'やりますか' in content:
+            await message.channel.send('やりますねぇ！やりますやります')
+        if '痛い' in content:
+            await message.channel.send('痛いですねこれは痛い（冷静）')
+        if '王道' in content and ('ゆく' in content or '征く' in content) :
+            if 'ソープ' in content:
+                await message.chennel.send('（王者の風格）')
+            else:
+                await message.channel.send('ソープ系ですか')
+        if 'どういう' in content and 'が' in content and 'ですか？' in content:
+            await message.channel.send('そうですねぇ...やっぱり僕は王道を征く...ソープ系ですか（王者の風格）')
+        if ('丘' in content or '岡' in content) and ('の' in content or 'ノ' in content) and ('下' in content or '下' in content):
         if 'この' in content and ('辺' in content or 'へん' in content) and 'が' in content and ('セ' in content or 's' in content or 'S' in content):
             await message.channel.send('エロい♪')
         if 'れんなよ' in content:
@@ -73,11 +87,7 @@ def run_discord_bot():
         if 'そうだよ' in content or 'そだよ' in content or 'そうですよ' in content:
             await message.channel.send('''そうだよ（便乗）
 https://tenor.com/XrM8.gif''')
-        if '淫夢' in content and '真夏' in content:
-            await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
-        elif '淫夢' in content:
-            await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
-        elif '真夏' in content:
+        if :
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
         if 'ワイ' in content or 'イッチ' in content or 'pixiv' in content or '次回にかける' in content or 'ジョジョ' in content or (('みな' in content or '皆' in content) and 'さん' in content and '一緒に' in content):
             response = random.choice(tanimura)
