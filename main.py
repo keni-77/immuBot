@@ -67,6 +67,8 @@ def run_discord_bot():
             await message.channel.send('あっそうだ　おいKMRァ！（唐突）')
         if 'あ' in content and 'そうだ' in content:
             await message.channel.send('おいKMRァ！（唐突）')
+        if 'お' in content and 'てるか' in content:
+            await message.channel.send('バッチェ冷えてますよ')
         if 'お待たせ' in content or 'おまたせ' in content:
             await message.channel.send('アイスティしかなかったんだけどいいかな？')
         if 'どういう' in content and 'が' in content and 'ですか？' in content:
