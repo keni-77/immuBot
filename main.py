@@ -121,7 +121,7 @@ https://www.youtube.com/watch?v=A3P4J7TcAk0''')
     if TOKEN:
         try:
             # 元のコードにあった client.run(TOKEN) のみを実行
-            client.run(TOKEN)
+            bot.run(TOKEN)
         except Exception as e:
             print(f"Discord Bot 起動失敗: {e}")
     else:
