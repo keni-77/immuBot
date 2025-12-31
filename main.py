@@ -30,7 +30,8 @@ def run_discord_bot():
         # ログ出力（元のコードのまま）
         print(f'We have logged in as {bot.user}')
 
-    @bot.event async def on_guild_join(guild):
+    @bot.event
+    async def on_guild_join(guild):
         servers = len(bot.guilds)
         await bot.change_presence(status=discord.Status.online, activity=discord.CustomActivity(name=f'導入されているサーバー数：{servers}'))
         
