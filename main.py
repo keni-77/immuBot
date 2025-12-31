@@ -22,17 +22,15 @@ def run_discord_bot():
     TOKEN = os.getenv("DISCORD_TOKEN")
     
     # 元のコードで使用されていた Intents.all() を使用
-    client = discord.Client(intents=discord.Intents.all())
     bot = discord.Bot(intents=discord.Intents.all())
 
-    # --- お友達の Bot のロジックの移植 ---
     
-    @client.event
+    @bot.event
     async def on_ready():
         # ログ出力（元のコードのまま）
         print(f'We have logged in as {client.user}')
         
-    @client.event
+    @bot.event
     async def on_message(message):
         if message.author == client.user:
             return
