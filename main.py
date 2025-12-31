@@ -113,6 +113,10 @@ https://tenor.com/XrM8.gif''')
 **フ ウ゛ゥ゛ゥ゛ゥン！！！！(大迫真)**
 ***（※音量注意）***
 https://www.youtube.com/watch?v=A3P4J7TcAk0''')
+
+    @client.command(name="Call", description="人を呼び出します")
+    async def greeting(ctx: discord.ApplicationContext, name: str):
+    await ctx.respond(f'あっそうだ　おい {name}！（唐突）')
     
     # --- Botの実行 ---
     if TOKEN:
