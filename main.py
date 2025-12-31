@@ -22,7 +22,7 @@ def run_discord_bot():
     TOKEN = os.getenv("DISCORD_TOKEN")
     
     # 元のコードで使用されていた Intents.all() を使用
-    client = discord.Bot(intents=discord.Intents.all())
+    client = discord.Client(intents=discord.Intents.all())
 
     
     @client.event
