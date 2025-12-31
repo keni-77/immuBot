@@ -18,6 +18,8 @@ def run_discord_bot():
     global bot_start_attempted
 
     tanimura = ['黙れ', 'おい、谷村　姿勢正せ（山田風）', 'ダカラナニー']
+    servers = len(client.guilds)
+    await client.change_presence(status=discord.Status.online, activity=discord.CustomActivity(name=f'導入されているサーバー数：{servers}'))
     # 環境変数からトークンを取得
     TOKEN = os.getenv("DISCORD_TOKEN")
     
