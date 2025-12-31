@@ -23,6 +23,7 @@ def run_discord_bot():
     
     # 元のコードで使用されていた Intents.all() を使用
     client = discord.Client(intents=discord.Intents.all())
+    bot = discord.Bot(intents=discord.Intents.all())
 
     # --- お友達の Bot のロジックの移植 ---
     
@@ -114,7 +115,7 @@ https://tenor.com/XrM8.gif''')
 ***（※音量注意）***
 https://www.youtube.com/watch?v=A3P4J7TcAk0''')
 
-    @client.command(name="call", description="人を呼び出します")
+    @bot.command(name="call", description="人を呼び出します")
     async def greeting(ctx: discord.ApplicationContext, name: str):
         await ctx.respond(f'あっそうだ　おい {name}！（唐突）')
     
