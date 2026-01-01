@@ -86,6 +86,10 @@ def run_discord_bot():
             await message.channel.send('これもう...わかんねぇな')
         if '多少' in content:
             await message.channel.send('まあ、多少はね？')
+        if 'いいじゃん' in content and 'たろ' in content:
+            await message.channel.send('すここい歌♪')
+        elif 'いいじゃん' in content:
+            await message.channel.send('入れたろ♪')
         if 'すここい歌' in content:
             await message.channel.send('YAJU&U！')
         if 'YAJU' in content and ('&' in content or '＆' in content) and 'U' in content or ('24歳' in content or '２４歳' in content) and '学生' in content:
