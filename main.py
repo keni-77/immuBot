@@ -64,7 +64,7 @@ def run_discord_bot():
                 await message.channel.send('（王者の風格）')
             else:
                 await message.channel.send('ソープ系ですか')
-        if 'じゃけん' in content and 'ましょう' in content:
+        if 'じゃけん' in content and 'ましょ' in content:
             await message.channel.send('おっ、そうだな（適当）')
         if 'お' in content and 'そうだな' in content:
             await message.channel.send('あっそうだ　おいKMRァ！（唐突）')
