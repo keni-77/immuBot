@@ -21,7 +21,11 @@ def run_discord_bot():
     TOKEN = os.getenv("DISCORD_TOKEN")
     
     # 元のコードで使用されていた Intents.all() を使用
-    client = discord.Client(intents=discord.Intents.all())
+    intents = discord.Intents.all()
+    client = discord.Client(intents=intents)
+    intents.message_content = True  # メッセージ内容の受信を有効化
+    intents.messages = True  # メッセージの受信を有効化
+    
 
     
     @client.event
