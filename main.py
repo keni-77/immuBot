@@ -103,8 +103,6 @@ def run_discord_bot():
         if ('そうだよ' in content or 'そだよ' in content or 'そうですよ' in content) and '便乗' not in content:
             await message.channel.send('''そうだよ（便乗）
 https://tenor.com/XrM8.gif''')
-        if 'command' in content:
-            await message.channel.send('コマンドは応答しませんでした⚠')
         if '必殺' in content and '発動' in content:
             await message.channel.send('''必殺！野獣の咆哮！
 **ヌゥン！ヘッ！ヘッ！**
