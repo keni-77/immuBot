@@ -139,8 +139,23 @@ https://www.youtube.com/watch?v=A3P4J7TcAk0''')
             await send_channel.send(f"**{guild.name}** から退出しました。")
         await interaction.response.send_message(f"サーバー **{guild.name}** から退出しました。")
         await guild.leave()
-        
-    
+    @tree.command(name="random_number", description="1,4,5 からランダムに6回選びます")
+    async def random_number(interaction: discord.Interaction):
+        # 1,4,5からランダムに数字を選ぶ
+        numbers = [1, 4, 5]
+        result = [random.choice(numbers) for _ in range(6)]
+
+        # 特別な並び
+        special = [1, 1, 4, 5, 1, 4]
+        zorome1 = [1, 1, 1, 1, 1, 1]
+        zorome4 = [4, 4, 4, 4, 4, 4]
+        zorome5 = [5, 5, 5, 5, 5, 5]
+
+        if result == special:
+            await interaction.response.send_message(f"{result}\n\n🎉**いい世、来いよ！**🎉")
+        elif result == zorome1 or result == zorome4 or result == zorome5:
+            await interaction.response.send_message(f"結果: {result}\n\n🎉ゾロ目だゾ🎉")
+
     # --- Botの実行 ---
     if TOKEN:
         try:
