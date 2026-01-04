@@ -26,8 +26,7 @@ def run_discord_bot():
     client = discord.Client(intents=intents)
     intents.message_content = True  # メッセージ内容の受信を有効化
     intents.messages = True  # メッセージの受信を有効化
-    
-
+    tree = app_commands.CommandTree(client)
     
     @client.event
     async def on_ready():
