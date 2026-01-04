@@ -120,12 +120,12 @@ https://www.youtube.com/watch?v=A3P4J7TcAk0''')
         # Bot のオーナーだけ使えるようにする
         if interaction.user.id != 1367077549363953737:
             await interaction.response.send_message("このコマンドは許可されていません。")
-                return
+            return
 
         guild = client.get_guild(int(guild_id))
         if guild is None:
             await interaction.response.send_message("そのサーバーは見つかりませんでした。")
-                return
+            return
 
         await guild.leave()
         await interaction.response.send_message(f"サーバー **{guild.name}** から退出しました。")
