@@ -32,8 +32,8 @@ def run_discord_bot():
     async def on_ready():
         # ログ出力（元のコードのまま）
         print(f'We have logged in as {client.user}')
-        print(f'We have logged in as {client.user}')
-        await tree.sync() print("Slash commands synced.")
+        await tree.sync()
+        print("Slash commands synced.")
         
     @client.event
     async def on_message(message):
