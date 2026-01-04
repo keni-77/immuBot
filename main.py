@@ -127,12 +127,19 @@ https://www.youtube.com/watch?v=A3P4J7TcAk0''')
         if guild is None:
             await interaction.response.send_message("そのサーバーは見つかりませんでした。")
             return
-
-        await guild.leave()
+        
+        # 退出メッセージをそのサーバーのシステムチャンネル or 最初のテキストチャンネルに送る
+        send_channel = guild.system_channel
+        if send_channel is None: # システムチャンネルが無い場合は最初に見つかったテキストチャンネル
+            for ch in guild.text_channels:
+                if ch.permissions_for(guild.me).send_messages:
+                    send_channel = ch
+                    break
+        if send_channel:
+            await send_channel.send(f"**{guild.name}** から退出しました。")
         await interaction.response.send_message(f"サーバー **{guild.name}** から退出しました。")
-
-
-    
+        await guild.leave()
+        
     
     # --- Botの実行 ---
     if TOKEN:
