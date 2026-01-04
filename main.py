@@ -120,12 +120,12 @@ https://www.youtube.com/watch?v=A3P4J7TcAk0''')
     async def leave_server(interaction: discord.Interaction, guild_id: str):
         # Bot のオーナーだけ使えるようにする
         if interaction.user.id != 1367077549363953737:
-            await interaction.response.send_message("このコマンドは許可されていません。")
+            await interaction.response.send_message("このコマンドは許可されていません。", ephemeral=True)
             return
 
         guild = client.get_guild(int(guild_id))
         if guild is None:
-            await interaction.response.send_message("そのサーバーは見つかりませんでした。")
+            await interaction.response.send_message("そのサーバーは見つかりませんでした。", ephemeral=True)
             return
         
         # 退出メッセージをそのサーバーのシステムチャンネル or 最初のテキストチャンネルに送る
