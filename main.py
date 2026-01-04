@@ -4,6 +4,7 @@ import random
 from flask import Flask
 from threading import Thread
 import time
+from discord import app_commands
 
 # Flaskのアプリケーションインスタンスを作成（gunicornが実行するWebサーバー）
 app = Flask(__name__) 
@@ -114,6 +115,22 @@ https://tenor.com/XrM8.gif''')
 ***（※音量注意）***
 https://www.youtube.com/watch?v=A3P4J7TcAk0''')
 
+    @tree.command(name="leave", description="このBotを特定のサーバーから退出させます（Botオーナー専用コマンド）")
+    async def leave_server(interaction: discord.Interaction, guild_id: str):
+        # Bot のオーナーだけ使えるようにする
+        if interaction.user.id != 1367077549363953737:
+            await interaction.response.send_message("このコマンドは許可されていません。")
+                return
+
+        guild = client.get_guild(int(guild_id))
+        if guild is None:
+            await interaction.response.send_message("そのサーバーは見つかりませんでした。")
+                return
+
+        await guild.leave()
+        await interaction.response.send_message(f"サーバー **{guild.name}** から退出しました。")
+
+
     
     
     # --- Botの実行 ---
@@ -129,7 +146,7 @@ https://www.youtube.com/watch?v=A3P4J7TcAk0''')
 # -----------------
 # Webサーバーのエンドポイント (gunicornがアクセスする場所)
 # -----------------
-@app.route('/')
+@app.route('/', methods=['GET', 'HEAD'])
 def home():
     global bot_start_attempted
     
