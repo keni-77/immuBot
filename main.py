@@ -45,7 +45,7 @@ def run_discord_bot():
         await client.change_presence(status=discord.Status.online, activity=discord.CustomActivity(name=f'導入されているサーバー数：{servers}'))
         content = message.content
 
-        if 'ンァ' in content or 'んぁ' in content or 'ﾝｧ' in content or 'んあ' in content or 'ンア' in content or 'ﾝｱ' in content or 'いきそ' in content or 'イキソ' in content or 'ｲｷｿ' in content or 'それいいよ' in content or 'ソレいいよ' in content or 'KMR' in content or 'MUR' in content or 'TDN' in content or 'TON' in content or 'HTN' in content or 'DB' in content or 'TNOK' in content or 'DRVS' in content or 'NSOK' in content or 'KBTIT' in content or 'OGMM' in content or 'KYN' in content or 'NKTIDKSG' in content or 'AKYS' in content or 'TKNUC' in content or 'SGW' in content or 'ONDISK' in content or 'TRN' in content or 'KBS' in content or 'ECZN' in content or '下北沢' in content or '114514' in content or '１１４５１４' in content or 'くしろよ' in content or '810' in content or '８１０' in content or '野獣' in content or 'やじゅう' in content or 'いきすぎ' in content or 'イキスギ' in content or 'ｲｷｽｷﾞ' in content or '田所' in content or '364' in content or '３６４' in content or 'みろよ' in content or '見ろよ' in content or '191919' in content or 'いくいくいく' in content or '１９１９１９' in content or 'ますね' in content or 'マスネ' in content or 'ﾏｽﾈ' in content or 'いんむ' in content or 'いんみゅ' in content or 'インミュ' in content or '真夏' in content or 'まなつ' in content or 'おなしゃす' in content or 'オナシャス' in content or 'せんせんしゃ' in content or 'センセンシャ' in content or '菅野美穂' in content or 'カンノミホ' in content or 'かんのみほ' in content or 'でますよ' in content or '出ますよ' in content or 'くいあらためて' in content or '悔い改めて' in content or '見とけよ' in content or 'みとけよ' in content or 'まずいですよ' in content or '小並感' in content or 'ありがとナス' in content or 'ヨツンヴァイ' in content:
+        if 'ンァ' in content or 'んぁ' in content or 'ﾝｧ' in content or 'んあ' in content or 'ンア' in content or 'ﾝｱ' in content or 'いきそ' in content or 'イキソ' in content or 'ｲｷｿ' in content or 'それいいよ' in content or 'ソレいいよ' in content or 'KMR' in content or 'MUR' in content or 'TDN' in content or 'TON' in content or 'HTN' in content or 'DB' in content or 'TNOK' in content or 'DRVS' in content or 'NSOK' in content or 'KBTIT' in content or 'OGMM' in content or 'KYN' in content or 'NKTIDKSG' in content or 'AKYS' in content or 'TKNUC' in content or 'SGW' in content or 'ONDISK' in content or 'TRN' in content or 'KBS' in content or 'ECZN' in content or 'RU' in content or 'EMT' in content or 'らいらら' in content or 'MYN' in content or 'SNJ' in content or 'BB先輩' in content or 'TKGW' in content or 'MNR' in content or 'POPO' in content or 'NDK' in content or 'AKNM' in content or 'JOKER' in content or 'GO' in content or 'UDK' in content or 'coat' in content or 'Coat' in content or 'COAT' in content or '下北沢' in content or '114514' in content or '１１４５１４' in content or 'くしろよ' in content or '810' in content or '８１０' in content or '野獣' in content or 'やじゅう' in content or 'いきすぎ' in content or 'イキスギ' in content or 'ｲｷｽｷﾞ' in content or '田所' in content or '364' in content or '３６４' in content or 'みろよ' in content or '見ろよ' in content or '191919' in content or 'いくいくいく' in content or '１９１９１９' in content or 'ますね' in content or 'マスネ' in content or 'ﾏｽﾈ' in content or 'いんむ' in content or 'いんみゅ' in content or 'インミュ' in content or '真夏' in content or 'まなつ' in content or 'おなしゃす' in content or 'オナシャス' in content or 'せんせんしゃ' in content or 'センセンシャ' in content or '菅野美穂' in content or 'カンノミホ' in content or 'かんのみほ' in content or 'でますよ' in content or '出ますよ' in content or 'くいあらためて' in content or '悔い改めて' in content or '見とけよ' in content or 'みとけよ' in content or 'まずいですよ' in content or '小並感' in content or 'ありがとナス' in content or 'ヨツンヴァイ' in content:
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
         if 'いいよ' in content and 'こいよ' in content:
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
@@ -53,8 +53,14 @@ def run_discord_bot():
             await message.channel.send('こいよ！')
         if 'みたいな' in content or '見たいな' in content:
             await message.channel.send('見たけりゃ見せてやるよ！（震え声）')
+        if 'あ' in content and 'はい' in content:
+            await message.channel.send('お前さっき俺ら着替えてる時チラチラ見てただろ')
+        if 'ココア' in content and 'ライオン' in content or 'ここ' in content and ('あらえよ' in content or '洗えよ' in content):
+            await message.channel.send('あ、わかりました...')
         if ('みて' in content or '見て' in content) and 'ない' in content:
             await message.channel.send('嘘つけ絶対見てたゾ')
+        if 'ええな' in content or 'えぇな' in content:
+            await message.channel.send('あ、いいじゃん　入れたろ♪')
         if '頭' in content and 'ますよ' in content:
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
         if 'ありますか' in content:
@@ -74,7 +80,7 @@ def run_discord_bot():
             await message.channel.send('あっそうだ　おいKMRァ！（唐突）')
         if 'あ' in content and 'そうだ' in content:
             await message.channel.send('おいKMRァ！（唐突）')
-        if 'お' in content and 'てるか' in content:
+        if 'えてるか' in content:
             await message.channel.send('バッチェ冷えてますよ')
         if 'お待たせ' in content or 'おまたせ' in content:
             await message.channel.send('アイスティしかなかったんだけどいいかな？')
@@ -94,9 +100,9 @@ def run_discord_bot():
             await message.channel.send('これもう...わかんねぇな')
         if '多少' in content:
             await message.channel.send('まあ、多少はね？')
-        if 'いいじゃん' in content and 'たろ' in content:
+        if 'れたろ' in content:
             await message.channel.send('すここい歌♪')
-        elif 'いいじゃん' in content:
+        elif 'いいじゃん' in content and 'たろ' not in content:
             await message.channel.send('入れたろ♪')
         if 'すここい歌' in content:
             await message.channel.send('YAJU&U！')
