@@ -149,6 +149,9 @@ https://www.youtube.com/watch?v=A3P4J7TcAk0''')
         # 1,4,5からランダムに数字を選ぶ
         numbers = [1, 4, 5]
         result = [random.choice(numbers) for _ in range(6)]
+        
+        # 読み方辞書 reading = { 1: "い", 4: "よ", 5: "こ" }
+        # 読み方に変換 reading_result = "".join(reading[n] for n in result)
 
         # 特別な並び
         special = [1, 1, 4, 5, 1, 4]
@@ -157,11 +160,11 @@ https://www.youtube.com/watch?v=A3P4J7TcAk0''')
         zorome5 = [5, 5, 5, 5, 5, 5]
 
         if result == special:
-            await interaction.response.send_message(f"{result}\n\n🎉**いい世、来いよ！**🎉")
+            await interaction.response.send_message(f"結果: {result}\n\n🎉**いい世、来いよ！**🎉")
         elif result == zorome1 or result == zorome4 or result == zorome5:
             await interaction.response.send_message(f"結果: {result}\n\n🎉ゾロ目だゾ🎉")
         else:
-            await interaction.response.send_message(f"結果: {result}\n\n残念だったゾ")
+            await interaction.response.send_message(f"結果: {result}\n{reading_result}\n残念だったゾ")
 
     # --- Botの実行 ---
     if TOKEN:
