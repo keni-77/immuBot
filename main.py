@@ -152,14 +152,14 @@ https://www.youtube.com/watch?v=A3P4J7TcAk0''')
         await interaction.response.send_message(f"サーバー **{guild.name}** から退出しました。")
         await guild.leave()
         
-    @tree.command(name="random_number", description="1,4,5 からランダムに6回選びます")
+    @tree.command(name="random_number", description="1,4,5,9からランダムに6回選びます")
     async def random_number(interaction: discord.Interaction):
         # 1,4,5からランダムに数字を選ぶ
-        numbers = [1, 4, 5]
+        numbers = [1, 4, 5, 9]
         result = [random.choice(numbers) for _ in range(6)]
         
         # 読み方辞書
-        reading = { 1: "い", 4: "よ", 5: "こ" }
+        reading = { 1: "い", 4: "よ", 5: "こ", 9: "く" }
         # 読み方に変換
         reading_result = "".join(reading[n] for n in result)
 
@@ -168,15 +168,28 @@ https://www.youtube.com/watch?v=A3P4J7TcAk0''')
         zorome1 = [1, 1, 1, 1, 1, 1]
         zorome4 = [4, 4, 4, 4, 4, 4]
         zorome5 = [5, 5, 5, 5, 5, 5]
+        zorome9 = [9, 9, 9, 9, 9, 9]
+        ikuikuiku = [1, 9, 1, 9, 1, 9]
+        sikosikosiko = [4, 5, 4, 5, 4, 5]
+        gosigosigosi = [5, 4, 5, 4, 5, 4]
         
         user_id = interaction.user.id
         
         if result == special:
             await interaction.response.send_message(f"結果: {result}\n\n🎉**いい世、来いよ！**🎉")
             yaju_scores[user_id] = yaju_scores.get(user_id, 0) + 6
-        elif result == zorome1 or result == zorome4 or result == zorome5:
+        elif result == zorome1 or result == zorome4 or result == zorome5 or result ==zorome9:
             await interaction.response.send_message(f"結果: {result}\n\n🎉ゾロ目だゾ🎉")
-            yaju_scores[user_id] = yaju_scores.get(user_id, 0) + 1
+            yaju_scores[user_id] = yaju_scores.get(user_id, 0) + 3
+        elif result == ikuikuiku:
+            await interaction.response.send_message(f"結果: {result}\n\n🎉**イキスギィ！**🎉")
+            yaju_scores[user_id] = yaju_scores.get(user_id, 0) + 4
+        elif result == sikosikosiko:
+            await interaction.response.send_message(f"結果: {result}\n（し◯し◯し◯...）\n🎉**やりますねぇ！**🎉")
+            yaju_scores[user_id] = yaju_scores.get(user_id, 0) + 4
+        elif result == gosigosigosi:
+            await interaction.response.send_message(f"結果: {result}\n（ごしごしごし...）\n🎉**洗い方上手いっすね〜**🎉")
+            yaju_scores[user_id] = yaju_scores.get(user_id, 0) + 4
         else:
             await interaction.response.send_message(f"結果: {result}\n{reading_result}\n残念だったゾ")
 
