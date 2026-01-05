@@ -15,6 +15,8 @@ bot_start_attempted = False
 # -----------------
 # Discord Bot本体の起動関数
 # -----------------
+# ユーザーごとのスコアを保存
+yaju_scores = {}
 def run_discord_bot():
     global bot_start_attempted
     
@@ -27,6 +29,7 @@ def run_discord_bot():
     intents.message_content = True  # メッセージ内容の受信を有効化
     intents.messages = True  # メッセージの受信を有効化
     tree = app_commands.CommandTree(client)
+    user_id = interaction.user.id
     
     @client.event
     async def on_ready():
@@ -119,7 +122,7 @@ https://www.youtube.com/watch?v=A3P4J7TcAk0''')
     @tree.command(name="leave", description="このBotを特定のサーバーから退出させます（Botオーナー専用コマンド）")
     async def leave_server(interaction: discord.Interaction, guild_id: str):
         # Bot のオーナーだけ使えるようにする
-        if interaction.user.id != 1367077549363953737:
+        if user_id != 1367077549363953737:
             await interaction.response.send_message("このコマンドは許可されていません。", ephemeral=True)
             return
         # 数字チェック
@@ -163,10 +166,34 @@ https://www.youtube.com/watch?v=A3P4J7TcAk0''')
 
         if result == special:
             await interaction.response.send_message(f"結果: {result}\n\n🎉**いい世、来いよ！**🎉")
+            yaju_scores[user_id] = yaju_scores.get(user_id, 0) + 6
         elif result == zorome1 or result == zorome4 or result == zorome5:
             await interaction.response.send_message(f"結果: {result}\n\n🎉ゾロ目だゾ🎉")
+            yaju_scores[user_id] = yaju_scores.get(user_id, 0) + 1
         else:
             await interaction.response.send_message(f"結果: {result}\n{reading_result}\n残念だったゾ")
+
+    @tree.command(name="yaju_rank", description="野獣スコアランキングを表示します")
+    async def yaju_rank(interaction: discord.Interaction):
+
+        if not yaju_scores:
+            await interaction.response.send_message("まだ誰もスコアを持っていません。", ephemeral=True)
+            return
+
+        # スコア順に並べ替え
+        sorted_scores = sorted(yaju_scores.items(), key=lambda x: x[1], reverse=True)
+
+        # ランキング文字列生成
+        rank_lines = []
+        for i, (user_id, score) in enumerate(sorted_scores, start=1):
+            user = interaction.guild.get_member(user_id)
+            name = user.display_name if user else f"Unknown({user_id})"
+            rank_lines.append(f"{i}位: **{name}** - {score}点")
+
+        rank_text = "\n".join(rank_lines)
+
+        await interaction.response.send_message(f"🏆**野獣スコアランキング**🏆\n　*今日の野獣王は誰！？*　\n\n{rank_text}")
+
 
     # --- Botの実行 ---
     if TOKEN:
