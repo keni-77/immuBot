@@ -150,8 +150,10 @@ https://www.youtube.com/watch?v=A3P4J7TcAk0''')
         numbers = [1, 4, 5]
         result = [random.choice(numbers) for _ in range(6)]
         
-        # 読み方辞書 reading = { 1: "い", 4: "よ", 5: "こ" }
-        # 読み方に変換 reading_result = "".join(reading[n] for n in result)
+        # 読み方辞書
+        reading = { 1: "い", 4: "よ", 5: "こ" }
+        # 読み方に変換
+        reading_result = "".join(reading[n] for n in result)
 
         # 特別な並び
         special = [1, 1, 4, 5, 1, 4]
