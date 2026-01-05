@@ -122,7 +122,11 @@ https://www.youtube.com/watch?v=A3P4J7TcAk0''')
         if interaction.user.id != 1367077549363953737:
             await interaction.response.send_message("このコマンドは許可されていません。", ephemeral=True)
             return
-
+        # 数字チェック
+        if not guild_id.isdigit():
+            await interaction.response.send_message("サーバーIDは数字で入力してください。", ephemeral=True)
+            return
+        # サーバーチェック
         guild = client.get_guild(int(guild_id))
         if guild is None:
             await interaction.response.send_message("そのサーバーは見つかりませんでした。", ephemeral=True)
@@ -139,6 +143,7 @@ https://www.youtube.com/watch?v=A3P4J7TcAk0''')
             await send_channel.send(f"**{guild.name}** から退出しました。")
         await interaction.response.send_message(f"サーバー **{guild.name}** から退出しました。")
         await guild.leave()
+        
     @tree.command(name="random_number", description="1,4,5 からランダムに6回選びます")
     async def random_number(interaction: discord.Interaction):
         # 1,4,5からランダムに数字を選ぶ
