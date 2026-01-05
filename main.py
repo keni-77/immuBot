@@ -160,6 +160,8 @@ https://www.youtube.com/watch?v=A3P4J7TcAk0''')
             await interaction.response.send_message(f"{result}\n\n🎉**いい世、来いよ！**🎉")
         elif result == zorome1 or result == zorome4 or result == zorome5:
             await interaction.response.send_message(f"結果: {result}\n\n🎉ゾロ目だゾ🎉")
+        else:
+            await interaction.response.send_message(f"結果: {result}\n\n残念だったゾ")
 
     # --- Botの実行 ---
     if TOKEN:
