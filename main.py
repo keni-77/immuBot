@@ -94,6 +94,10 @@ def run_discord_bot():
             await message.channel.send('エロい♪')
         if 'れんなよ' in content:
             await message.channel.send('お前のことがッ！好きだったんだよ！！！')
+        if '白' in content:
+            await message.channel.send('はっきりわかんだね')
+        if 'はっきり' in content:
+            await message.channel.send('すげぇ白くなってる')
         if 'これもう' in content and 'な' in content:
             await message.channel.send('この辺がSexy！')
         if 'エロい' in content or 'えろい' in content:
