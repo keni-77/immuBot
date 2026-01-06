@@ -130,6 +130,14 @@ https://tenor.com/XrM8.gif''')
 ***（※音量注意）***
 https://www.youtube.com/watch?v=A3P4J7TcAk0''')
 
+    @tree.command(name="server_list", description="Botが参加しているサーバー一覧を表示します")
+    async def server_list(interaction: discord.Interaction):
+
+        guilds = client.guilds
+        text = "\n".join([f"{g.name} : {g.id}" for g in guilds])
+
+        await interaction.response.send_message(f"**参加中のサーバー（{len(guilds)}件）**\n{text}")
+
     @tree.command(name="leave", description="このBotを特定のサーバーから退出させます（Botオーナー専用コマンド）")
     async def leave_server(interaction: discord.Interaction, guild_id: str):
         # Bot のオーナーだけ使えるようにする
