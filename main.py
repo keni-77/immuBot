@@ -224,10 +224,10 @@ https://www.youtube.com/watch?v=A3P4J7TcAk0''')
             user = interaction.client.get_user(user_id)
 
             if user:
-            # グローバル名 → なければ username
-            name = user.global_name or user.name
+                # グローバル名 → なければ username
+                name = user.global_name or user.name
             else:
-            name = f"Unknown({user_id})"
+                name = f"Unknown({user_id})"
 
             rank_lines.append(f"{i}位: **{name}** - {score}点")
 
