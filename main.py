@@ -217,16 +217,24 @@ https://www.youtube.com/watch?v=A3P4J7TcAk0''')
         # スコア順に並べ替え
         sorted_scores = sorted(yaju_scores.items(), key=lambda x: x[1], reverse=True)
 
-        # ランキング文字列生成
         rank_lines = []
         for i, (user_id, score) in enumerate(sorted_scores, start=1):
-            user = interaction.guild.get_member(user_id)
-            name = user.display_name if user else f"Unknown({user_id})"
+
+            # どのサーバーにいてもユーザー情報を取得
+            user = interaction.client.get_user(user_id)
+
+            if user:
+            # グローバル名 → なければ username
+            name = user.global_name or user.name
+            else:
+            name = f"Unknown({user_id})"
+
             rank_lines.append(f"{i}位: **{name}** - {score}点")
 
         rank_text = "\n".join(rank_lines)
 
         await interaction.response.send_message(f"🏆**野獣スコアランキング**🏆\n　*今日の野獣王は誰！？*　\n\n{rank_text}")
+
 
 
     # --- Botの実行 ---
