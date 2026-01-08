@@ -166,9 +166,9 @@ https://www.youtube.com/watch?v=A3P4J7TcAk0''')
         await interaction.response.send_message(f"サーバー **{guild.name}** から退出しました。")
         await guild.leave()
         
-    @tree.command(name="random_number", description="1,4,5,9からランダムに6回選びます")
+    @tree.command(name="random_number", description="1,3,4,5,6,9からランダムに6回選びます")
     async def random_number(interaction: discord.Interaction):
-        # 1,4,5からランダムに数字を選ぶ
+        # ランダムに数字を選ぶ
         numbers = [1, 3, 4, 5, 6, 9]
         result = [random.choice(numbers) for _ in range(6)]
         
