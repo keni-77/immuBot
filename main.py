@@ -140,31 +140,44 @@ https://www.youtube.com/watch?v=A3P4J7TcAk0''')
 
     @tree.command(name="leave", description="このBotを特定のサーバーから退出させます（Botオーナー専用コマンド）")
     async def leave_server(interaction: discord.Interaction, guild_id: str):
-        # Bot のオーナーだけ使えるようにする
+
+        # Bot のオーナーだけ使える
         if interaction.user.id != 1367077549363953737:
             await interaction.response.send_message("このコマンドは許可されていません。", ephemeral=True)
             return
+
+        # まず defer でインタラクション確保
+        await interaction.response.defer(ephemeral=True)
+
         # 数字チェック
         if not guild_id.isdigit():
-            await interaction.response.send_message("サーバーIDは数字で入力してください。", ephemeral=True)
+            await interaction.followup.send("サーバーIDは数字で入力してください。", ephemeral=True)
             return
+
         # サーバーチェック
-        guild = client.get_guild(int(guild_id))
+        guild = interaction.client.get_guild(int(guild_id))
         if guild is None:
-            await interaction.response.send_message("そのサーバーは見つかりませんでした。", ephemeral=True)
+            await interaction.followup.send("そのサーバーは見つかりませんでした。", ephemeral=True)
             return
-        
-        # 退出メッセージをそのサーバーのシステムチャンネル or 最初のテキストチャンネルに送る
-        send_channel = guild.system_channel
-        if send_channel is None: # システムチャンネルが無い場合は最初に見つかったテキストチャンネル
-            for ch in guild.text_channels:
-                if ch.permissions_for(guild.me).send_messages:
-                    send_channel = ch
-                    break
-        if send_channel:
-            await send_channel.send(f"**{guild.name}** から退出しました。")
-        await interaction.response.send_message(f"サーバー **{guild.name}** から退出しました。")
-        await guild.leave()
+
+        # 退出メッセージ送信（権限不足でも無視）
+        try:
+            # システムチャンネル or 最初に書き込めるテキストチャンネル
+            send_channel = guild.system_channel or next(
+                (ch for ch in guild.text_channels if ch.permissions_for(guild.me).send_messages),
+                None
+            )
+            if send_channel:
+                await send_channel.send(f"**{guild.name}** から退出します。")
+        except:
+            pass
+
+        # サーバー退出
+        try:
+            await guild.leave()
+            await interaction.followup.send(f"サーバー **{guild.name}** から退出しました。", ephemeral=True)
+        except discord.Forbidden:
+            await interaction.followup.send("権限不足で退出できませんでした。Bot のロールを一番上にしてください。", ephemeral=True)
         
     @tree.command(name="random_number", description="1,3,4,5,6,9からランダムに6回選びます")
     async def random_number(interaction: discord.Interaction):
