@@ -175,7 +175,7 @@ https://www.youtube.com/watch?v=A3P4J7TcAk0''')
         # サーバー退出
         try:
             await guild.leave()
-            await interaction.followup.send(f"サーバー **{guild.name}** から退出しました。", ephemeral=True)
+            await interaction.followup.send(f"サーバー **{guild.name}** から退出しました。")
         except discord.Forbidden:
             await interaction.followup.send("権限不足で退出できませんでした。Bot のロールを一番上にしてください。", ephemeral=True)
         
