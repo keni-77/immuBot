@@ -279,17 +279,8 @@ https://www.youtube.com/watch?v=A3P4J7TcAk0''')
 # -----------------
 @app.route('/', methods=['GET', 'HEAD'])
 def home():
-    global bot_start_attempted
-    
-    # Botがまだ起動を試みていない場合のみ、Botを別スレッドで起動
-    if not bot_start_attempted:
-        print("Webアクセスを検知。Discord Botの起動を試みます...")
-        bot_start_attempted = True
-        
-        # Botを別スレッドで起動
-        Thread(target=run_discord_bot).start()
-        
-        return "Discord Bot is initializing..."
-    
-    # Bot起動試行済みの場合は、Renderのヘルスチェックに応答
     return "Bot is alive!"
+
+if __name__ == "__main__":
+    Thread(target=lambda: app.run(host="0.0.0.0", port=10000)).start()
+    run_discord_bot()
