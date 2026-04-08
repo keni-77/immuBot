@@ -17,6 +17,7 @@ bot_start_attempted = False
 # -----------------
 # ユーザーごとのスコアを保存
 yaju_scores = {}
+
 def run_discord_bot():
     global bot_start_attempted
     
