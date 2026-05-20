@@ -285,11 +285,12 @@ https://www.youtube.com/watch?v=A3P4J7TcAk0''')
         }   
 
         for key, value in patterns.items():
-            if key in num_str:
-                score += value
-                hits.append(key)
+            count = num_str.count(key)
+            if count > 0:
+                score += value * count
+        hits.append(f"{key}×{count}")
 
-        hit_text = ",".join(hits) if hits else "なし"
+        hit_text = ", ".join(hits) if hits else "なし"
 
         await interaction.response.send_message(
             f"**{display} の淫夢度診断**\n"
