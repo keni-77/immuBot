@@ -288,7 +288,7 @@ https://www.youtube.com/watch?v=A3P4J7TcAk0''')
             count = num_str.count(key)
             if count > 0:
                 score += value * count
-        hits.append(f"{key}×{count}")
+                hits.append(f"{key}×{count}")
 
         hit_text = ", ".join(hits) if hits else "なし"
 
