@@ -109,6 +109,8 @@ def run_discord_bot():
             await message.channel.send('すっげぇ白くなってる はっきりわかんだね')
         if 'たまげ' in content or '魂消' in content:
             await message.channel.send('勝手にたまげとけ')
+        if ('あたり' in content or '当たり' in content) and ('まえ' in content or '前' in content) or '当然' in content:
+            await message.channel.send('当たり前だよなぁ？？')
         if 'これもう' in content and 'な' in content:
             await message.channel.send('この辺がSexy！')
         if 'エロい' in content or 'えろい' in content:
