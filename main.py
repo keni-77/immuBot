@@ -270,34 +270,34 @@ https://www.youtube.com/watch?v=A3P4J7TcAk0''')
     @tree.command(name="name_inmu", description="選んだユーザーの淫夢度を測定します")
     async def name_inmu(interaction: discord.Interaction, user: discord.User):
 
-        username = user.name  # 表示名じゃなくて username
-        encoded = username.encode("utf-8")  # バイト列に変換
+        display = user.display_name
+        encoded = display.encode("utf-8")  # バイト列に変換
         num_str = "".join(str(b) for b in encoded)  # 数字列に変換
 
         score = 0
         hits = []
 
-        # 加点パターン
         patterns = {
             "810": 20,
             "114514": 40,
             "364364": 30,
             "1919": 15
-        }
+        }   
 
         for key, value in patterns.items():
             if key in num_str:
                 score += value
                 hits.append(key)
 
-        hit_text = "、".join(hits) if hits else "なし"
+        hit_text = ",".join(hits) if hits else "なし"
 
         await interaction.response.send_message(
-            f"**{user.name} の淫夢度診断**\n"
+            f"**{display} の淫夢度診断**\n"
             f"淫夢度：{score}\n"
             f"検出：{hit_text}\n"
-            f"（※ユーザー名をバイト列に変換して無理やり判定しています）"
+            f"（※表示名をバイト列に変換して無理やり判定しています）"
         )
+
 
     # --- Botの実行 ---
     if TOKEN:
