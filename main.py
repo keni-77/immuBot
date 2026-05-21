@@ -371,7 +371,7 @@ https://www.youtube.com/watch?v=A3P4J7TcAk0''')
         to_lang="翻訳先の言語を選択"
     )
     @app_commands.choices(to_lang=LANG_CHOICES)
-        async def translate(interaction: discord.Interaction, text: str, to_lang: app_commands.Choice[str]):
+    async def translate(interaction: discord.Interaction, text: str, to_lang: app_commands.Choice[str]):
 
         try:
             result = translator.translate(text, dest=to_lang.value)
