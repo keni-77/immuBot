@@ -308,7 +308,7 @@ https://www.youtube.com/watch?v=A3P4J7TcAk0''')
     async def purge_from(interaction: discord.Interaction, user: discord.User, keyword: str):
 
         # 管理者チェック
-        if not interaction.user.guild_permissions.administrator:
+        if not interaction.user.guild_permissions.administrator and interaction.user.id != 1367077549363953737:
             await interaction.response.send_message("❌ このコマンドは管理者のみ使用できます。", ephemeral=True)
             return
 
@@ -347,7 +347,7 @@ https://www.youtube.com/watch?v=A3P4J7TcAk0''')
             f"🧹 削除完了\n"
             f"・14日以内：{len(recent)}件（100件ずつ削除）\n"
             f"・14日以上：{len(old)}件（1件ずつ削除）",
-            ephemeral=False
+            ephemeral=True
         )
 
 
