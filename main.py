@@ -321,33 +321,35 @@ https://www.youtube.com/watch?v=A3P4J7TcAk0''')
         now = discord.utils.utcnow()
         limit_date = now - timedelta(days=14)
 
-        to_bulk = []
-        to_single = []
-
+        # メッセージを全部集める
+        targets = []
         async for msg in channel.history(limit=None):
             if msg.author.id == user.id and (keyword == "all" or keyword in msg.content):
-                if msg.created_at > limit_date:
-                    to_bulk.append(msg)
-                else:
-                    to_single.append(msg)
+                targets.append(msg)
 
+        # 14日以内と14日以上に分ける
+        recent = [m for m in targets if m.created_at > limit_date]
+        old = [m for m in targets if m.created_at <= limit_date]
 
-        # 14日以内 → bulk delete
-        if len(to_bulk) > 1:
-            await channel.delete_messages(to_bulk)
-        elif len(to_bulk) == 1:
-            await to_bulk[0].delete()
+        # --- 100件ずつ削除（bulk delete） ---
+        for i in range(0, len(recent), 100):
+            batch = recent[i:i+100]
+            if len(batch) > 1:
+                await channel.delete_messages(batch)
+            else:
+                await batch[0].delete()
 
-        # 14日以上 → 1件ずつ削除
-        for m in to_single:
+        # --- 古いメッセージは1件ずつ削除 ---
+        for m in old:
             await m.delete()
 
         await interaction.followup.send(
             f"🧹 削除完了\n"
-            f"・14日以内：{len(to_bulk)}件\n"
-            f"・14日以上：{len(to_single)}件",
+            f"・14日以内：{len(recent)}件（100件ずつ削除）\n"
+            f"・14日以上：{len(old)}件（1件ずつ削除）",
             ephemeral=False
         )
+
 
     # --- Botの実行 ---
     if TOKEN:
