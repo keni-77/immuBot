@@ -303,7 +303,7 @@ https://www.youtube.com/watch?v=A3P4J7TcAk0''')
     @tree.command(name="purge_from", description="指定ユーザーの指定キーワードを含むメッセージをチャンネルから削除（管理者専用）")
     @app_commands.describe(
         user="削除対象のユーザー",
-        keyword="含まれているキーワード"
+        keyword="含まれているキーワード（allで全てのメッセージを削除）"
     )
     async def purge_from(interaction: discord.Interaction, user: discord.User, keyword: str):
 
@@ -325,11 +325,12 @@ https://www.youtube.com/watch?v=A3P4J7TcAk0''')
         to_single = []
 
         async for msg in channel.history(limit=None):
-            if msg.author.id == user.id and keyword in msg.content:
+            if msg.author.id == user.id and (keyword == "all" or keyword in msg.content):
                 if msg.created_at > limit_date:
                     to_bulk.append(msg)
                 else:
                     to_single.append(msg)
+
 
         # 14日以内 → bulk delete
         if len(to_bulk) > 1:
