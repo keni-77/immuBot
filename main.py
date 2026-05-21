@@ -314,7 +314,7 @@ https://www.youtube.com/watch?v=A3P4J7TcAk0''')
 
         await interaction.response.send_message(
             f"🔍 {user.display_name} の「{keyword}」を含むメッセージを検索中…",
-            ephemeral=False
+            ephemeral=True
         )
 
         channel = interaction.channel
