@@ -5,6 +5,7 @@ from flask import Flask
 from threading import Thread
 import time
 from discord import app_commands
+from datetime import timedelta
 
 # Flaskのアプリケーションインスタンスを作成（gunicornが実行するWebサーバー）
 app = Flask(__name__) 
@@ -299,6 +300,53 @@ https://www.youtube.com/watch?v=A3P4J7TcAk0''')
             f"（※表示名をバイト列に変換して無理やり判定しています）"
         )
 
+    @tree.command(name="purge_from", description="指定ユーザーの指定キーワードを含むメッセージをチャンネルから削除（管理者専用）")
+    @app_commands.describe(
+        user="削除対象のユーザー",
+        keyword="含まれているキーワード"
+    )
+    async def purge_from(interaction: discord.Interaction, user: discord.User, keyword: str):
+
+        # 管理者チェック
+        if not interaction.user.guild_permissions.administrator:
+            await interaction.response.send_message("❌ このコマンドは管理者のみ使用できます。", ephemeral=True)
+            return
+
+        await interaction.response.send_message(
+            f"🔍 {user.display_name} の「{keyword}」を含むメッセージを検索中…",
+            ephemeral=False
+        )
+
+        channel = interaction.channel
+        now = discord.utils.utcnow()
+        limit_date = now - timedelta(days=14)
+
+        to_bulk = []
+        to_single = []
+
+        async for msg in channel.history(limit=None):
+            if msg.author.id == user.id and keyword in msg.content:
+                if msg.created_at > limit_date:
+                    to_bulk.append(msg)
+                else:
+                    to_single.append(msg)
+
+        # 14日以内 → bulk delete
+        if len(to_bulk) > 1:
+            await channel.delete_messages(to_bulk)
+        elif len(to_bulk) == 1:
+            await to_bulk[0].delete()
+
+        # 14日以上 → 1件ずつ削除
+        for m in to_single:
+            await m.delete()
+
+        await interaction.followup.send(
+            f"🧹 削除完了\n"
+            f"・14日以内：{len(to_bulk)}件\n"
+            f"・14日以上：{len(to_single)}件",
+            ephemeral=False
+        )
 
     # --- Botの実行 ---
     if TOKEN:
