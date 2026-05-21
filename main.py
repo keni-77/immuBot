@@ -6,6 +6,7 @@ from threading import Thread
 import time
 from discord import app_commands
 from datetime import timedelta
+from googletrans import Translator
 
 # Flaskのアプリケーションインスタンスを作成（gunicornが実行するWebサーバー）
 app = Flask(__name__) 
@@ -350,6 +351,37 @@ https://www.youtube.com/watch?v=A3P4J7TcAk0''')
             ephemeral=True
         )
 
+    translator = Translator()
+
+    LANG_CHOICES = [
+        app_commands.Choice(name="英語", value="en"),
+        app_commands.Choice(name="日本語", value="ja"),
+        app_commands.Choice(name="中国語（簡体）", value="zh-cn"),
+        app_commands.Choice(name="中国語（繁体）", value="zh-tw"),
+        app_commands.Choice(name="韓国語", value="ko"),
+        app_commands.Choice(name="ドイツ語", value="de"),
+        app_commands.Choice(name="ロシア語", value="ru"),
+        app_commands.Choice(name="フランス語", value="fr"),
+        app_commands.Choice(name="スペイン語", value="es"),
+    ]
+
+    @tree.command(name="translate", description="Google翻訳でテキストを翻訳します")
+    @app_commands.describe(
+        text="翻訳したい文章",
+        to_lang="翻訳先の言語を選択"
+    )
+    @app_commands.choices(to_lang=LANG_CHOICES)
+        async def translate(interaction: discord.Interaction, text: str, to_lang: app_commands.Choice[str]):
+
+        try:
+            result = translator.translate(text, dest=to_lang.value)
+            await interaction.response.send_message(
+                f"**翻訳結果（→ {to_lang.name}）**\n{result.text}"
+            )
+        except Exception as e:
+            await interaction.response.send_message(
+                f"翻訳に失敗しました。\nエラー: {e}"
+            )
 
     # --- Botの実行 ---
     if TOKEN:
