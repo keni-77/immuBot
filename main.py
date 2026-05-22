@@ -57,7 +57,7 @@ def run_discord_bot():
             await message.channel.send('まずうちさぁ、屋上あんだけど...焼いてかない？')
         if 'ふぁ' in content or 'ファ' in content or '胸' in content:
             await message.channel.send('ファ！？')
-        if '睡眠' in content or '昏睡' in content or ('飲み' in content or 'のみ' in content) and ('物' in content or 'もの' in content):
+        if 'お待たせ' in content or 'おまたせ' in content or '睡眠' in content or '昏睡' in content or ('飲み' in content or 'のみ' in content) and ('物' in content or 'もの' in content):
             await message.channel.send('アイスティしかなかったんだけど、いいかな？')
         if ('21' in content or '２１' in content) and ('拳' in content or 'こぶし' in content):
             await message.channel.send('24歳学生です')
@@ -88,10 +88,8 @@ def run_discord_bot():
             await message.channel.send('あっそうだ　おいKMRァ！（唐突）')
         if 'あ' in content and 'そうだ' in content:
             await message.channel.send('おいKMRァ！（唐突）')
-        if 'えてるか' in content:
+        if 'てるか' in content:
             await message.channel.send('バッチェ冷えてますよ')
-        if 'お待たせ' in content or 'おまたせ' in content:
-            await message.channel.send('アイスティしかなかったんだけどいいかな？')
         if 'ですか' in content:
             await message.channel.send('そうですねぇ...やっぱり僕は王道を征く...ソープ系ですか（王者の風格）')
         if ('丘' in content or '岡' in content or 'おか' in content) and ('の' in content or 'ノ' in content) and ('下' in content or 'した' in content):
