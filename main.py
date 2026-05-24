@@ -53,7 +53,7 @@ def run_discord_bot():
             await message.channel.send('うせやろ！？')
         if 'いいよ' in content and 'それ' not in content and 'ソレ' not in content and 'こいよ' not in content:
             await message.channel.send('こいよ！')
-        if '屋上' in content or 'まずうち' in content or '焼いてかない' in content or 'やいてかない' in content:
+        if '屋上' in content or 'まずうち' in content or 'てかない' in content:
             await message.channel.send('まずうちさぁ、屋上あんだけど...焼いてかない？')
         if 'ふぁ' in content or 'ファ' in content or '胸' in content:
             await message.channel.send('ファ！？')
