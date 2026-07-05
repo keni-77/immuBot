@@ -38,7 +38,24 @@ def run_discord_bot():
         print(f'We have logged in as {client.user}')
         await tree.sync()
         print("Slash commands synced.")
-        
+
+    @tree.context_menu(name="メッセージ消去")
+    async def delete_message(interaction: discord.Interaction, message: discord.Message):
+
+        # オーナー以外は使えない
+        if interaction.user.id != 1367077549363953737:
+            await interaction.response.send_message("❌ この機能は許可されていません。", ephemeral=True)
+            return
+
+        # メッセージ削除
+        try:
+            await message.delete()
+            await interaction.response.send_message("🧹 メッセージを削除しました。", ephemeral=True)
+        except discord.Forbidden:
+            await interaction.response.send_message("❌ 権限不足で削除できませんでした。", ephemeral=True)
+        except Exception as e:
+            await interaction.response.send_message(f"❌ エラーが発生しました: {e}", ephemeral=True)
+
     @client.event
     async def on_message(message):
         if message.author == client.user:
