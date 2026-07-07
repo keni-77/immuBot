@@ -6,16 +6,17 @@ from threading import Thread
 import time
 from discord import app_commands
 from datetime import timedelta
-import openai
+from openai import OpenAI
 
-openai.api_key = os.getenv("AI_API_KEY")
+client_ai = OpenAI(api_key=os.getenv("AI_API_KEY"))
 
 async def ask_ai(text):
-    response = openai.ChatCompletion.create(
+    response = client_ai.chat.completions.create(
         model="gpt-4o-mini",
         messages=[{"role": "user", "content": text}]
     )
-    return response["choices"][0]["message"]["content"]
+    return response.choices[0].message.content
+
 
 # Flaskのアプリケーションインスタンスを作成（gunicornが実行するWebサーバー）
 app = Flask(__name__) 
