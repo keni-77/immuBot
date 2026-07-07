@@ -173,23 +173,16 @@ https://c.tenor.com/o7oE1m3mZpAAAAAd/tenor.gif''')
 **フ ウ゛ゥ゛ゥ゛ゥン！！！！(大迫真)**
 ***（※音量注意）***
 https://www.youtube.com/watch?v=A3P4J7TcAk0''')
-        @client.event
-        async def on_message(message):
-            if message.author == client.user:
+            
+        # AI会話トリガー（「AI先輩」で始まるメッセージ）
+        if message.content.startswith("AI先輩"):
+            user_text = message.content.replace("AI先輩", "").strip()
+            if user_text == "":
+                await message.channel.send("どうした？")
                 return
-
-            # AI会話トリガー（「!ai」で始まるメッセージ）
-            if message.content.startswith("AI先輩"):
-                user_text = message.content.replace("AI先輩", "").strip()
-                if user_text == "":
-                    await message.channel.send("どうした？")
-                    return
-                reply = await ask_ai(user_text)
-                await message.channel.send(reply)
-                return
-
-            await client.process_commands(message)
-
+            reply = await ask_ai(user_text)
+            await message.channel.send(reply)
+            return
 
     @tree.command(name="server_list", description="Botが参加しているサーバー一覧を表示します")
     async def server_list(interaction: discord.Interaction):
