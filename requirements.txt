@@ -2,3 +2,4 @@ discord.py
 Flask
 gunicorn
 google-generativeai
+
