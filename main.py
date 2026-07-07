@@ -181,6 +181,9 @@ https://www.youtube.com/watch?v=A3P4J7TcAk0''')
             # AI会話トリガー（「!ai」で始まるメッセージ）
             if message.content.startswith("AI先輩"):
                 user_text = message.content.replace("AI先輩", "").strip()
+                if user_text == "":
+                    await message.channel.send("どうした？")
+                    return
                 reply = await ask_ai(user_text)
                 await message.channel.send(reply)
                 return
