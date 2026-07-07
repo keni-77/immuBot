@@ -9,10 +9,9 @@ from datetime import timedelta
 from google import genai
 
 client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
-
 async def ask_ai(text):
     try:
-        response = client.responses.generate(
+        response = client.models.generate(
             model="gemini-1.5-flash",
             input=text
         )
