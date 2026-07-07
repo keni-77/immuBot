@@ -6,15 +6,17 @@ from threading import Thread
 import time
 from discord import app_commands
 from datetime import timedelta
-import google.generativeai as genai
+from google import genai
 
-genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
 
 async def ask_ai(text):
     try:
-        model = genai.GenerativeModel("models/gemini-1.5-flash-001")
-        response = model.generate_content(text)
-        return response.text
+        response = client.responses.generate(
+            model="gemini-1.5-flash",
+            input=text
+        )
+        return response.output_text
     except Exception as e:
         print("AIエラー:", e)
         return "先輩、今ちょっと混み合ってるみたいですねぇ…"
