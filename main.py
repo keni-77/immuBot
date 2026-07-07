@@ -6,17 +6,18 @@ from threading import Thread
 import time
 from discord import app_commands
 from datetime import timedelta
-from openai import OpenAI
+import google.generativeai as genai
 
-client_ai = OpenAI(api_key=os.getenv("AI_API_KEY"))
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
 async def ask_ai(text):
-    response = client_ai.responses.create(
-        model="gpt-4o-mini",
-        input=text
-    )
-    return response.output_text
-
+    try:
+        model = genai.GenerativeModel("gemini-1.5-flash")
+        response = model.generate_content(text)
+        return response.text
+    except Exception as e:
+        print("AIエラー:", e)
+        return "先輩、今ちょっと混み合ってるみたいですねぇ…"
 
 # Flaskのアプリケーションインスタンスを作成（gunicornが実行するWebサーバー）
 app = Flask(__name__) 
@@ -176,7 +177,7 @@ https://www.youtube.com/watch?v=A3P4J7TcAk0''')
             
         # AI会話トリガー（「AI先輩」で始まるメッセージ）
         if message.content.startswith("AI先輩"):
-            user_text = message.content.replace("AI先輩", "").strip()
+            user_text = message.content[len("AI先輩"):].strip()
             if user_text == "":
                 await message.channel.send("どうした？")
                 return
