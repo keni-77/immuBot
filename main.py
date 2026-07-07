@@ -188,6 +188,8 @@ https://www.youtube.com/watch?v=A3P4J7TcAk0''')
                 await message.channel.send(reply)
                 return
 
+            await client.process_commands(message)
+
 
     @tree.command(name="server_list", description="Botが参加しているサーバー一覧を表示します")
     async def server_list(interaction: discord.Interaction):
