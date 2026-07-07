@@ -6,6 +6,16 @@ from threading import Thread
 import time
 from discord import app_commands
 from datetime import timedelta
+import openai
+
+openai.api_key = os.getenv("AI_API_KEY")
+
+async def ask_ai(text):
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=[{"role": "user", "content": text}]
+    )
+    return response["choices"][0]["message"]["content"]
 
 # Flaskのアプリケーションインスタンスを作成（gunicornが実行するWebサーバー）
 app = Flask(__name__) 
@@ -162,6 +172,18 @@ https://c.tenor.com/o7oE1m3mZpAAAAAd/tenor.gif''')
 **フ ウ゛ゥ゛ゥ゛ゥン！！！！(大迫真)**
 ***（※音量注意）***
 https://www.youtube.com/watch?v=A3P4J7TcAk0''')
+        @client.event
+        async def on_message(message):
+            if message.author == client.user:
+                return
+
+            # AI会話トリガー（「!ai」で始まるメッセージ）
+            if message.content.startswith("AI先輩"):
+                user_text = message.content.replace("AI先輩", "").strip()
+                reply = await ask_ai(user_text)
+                await message.channel.send(reply)
+                return
+
 
     @tree.command(name="server_list", description="Botが参加しているサーバー一覧を表示します")
     async def server_list(interaction: discord.Interaction):
