@@ -12,7 +12,7 @@ openai.api_key = os.getenv("AI_API_KEY")
 
 async def ask_ai(text):
     response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
+        model="gpt-4o-mini",
         messages=[{"role": "user", "content": text}]
     )
     return response["choices"][0]["message"]["content"]
