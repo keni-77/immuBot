@@ -6,20 +6,6 @@ from threading import Thread
 import time
 from discord import app_commands
 from datetime import timedelta
-from google import genai
-
-client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
-
-async def ask_ai(text):
-    try:
-        response = client.generate(
-            model="gemini-1.5-flash",
-            input=text
-        )
-        return response.output_text
-    except Exception as e:
-        print("AIエラー:", e)
-        return "先輩、今ちょっと混み合ってるみたいですねぇ…"
 
 # Flaskのアプリケーションインスタンスを作成（gunicornが実行するWebサーバー）
 app = Flask(__name__) 
@@ -176,16 +162,6 @@ https://c.tenor.com/o7oE1m3mZpAAAAAd/tenor.gif''')
 **フ ウ゛ゥ゛ゥ゛ゥン！！！！(大迫真)**
 ***（※音量注意）***
 https://www.youtube.com/watch?v=A3P4J7TcAk0''')
-            
-        # AI会話トリガー（「AI先輩」で始まるメッセージ）
-        if message.content.startswith("AI先輩"):
-            user_text = message.content[len("AI先輩"):].strip()
-            if user_text == "":
-                await message.channel.send("どうした？")
-                return
-            reply = await ask_ai(user_text)
-            await message.channel.send(reply)
-            return
 
     @tree.command(name="server_list", description="Botが参加しているサーバー一覧を表示します")
     async def server_list(interaction: discord.Interaction):
@@ -194,6 +170,41 @@ https://www.youtube.com/watch?v=A3P4J7TcAk0''')
         text = "\n".join([f"{g.name} : {g.id}" for g in guilds])
 
         await interaction.response.send_message(f"**参加中のサーバー（{len(guilds)}件）**\n{text}")
+    
+    @tree.command(name="invite", description="Botが参加しているサーバーの招待リンクを送ります")
+    async def invite(interaction: discord.Interaction, guild_id: str):
+
+        # 数字チェック
+        if not guild_id.isdigit():
+            await interaction.response.send_message("サーバーIDは数字で入力してください。", ephemeral=True)
+            return
+
+        guild = interaction.client.get_guild(int(guild_id))
+        if guild is None:
+            await interaction.response.send_message("そのサーバーは見つかりませんでした。", ephemeral=True)
+            return
+
+        # 招待リンクを作れるチャンネルを探す
+        target_channel = None
+        for ch in guild.text_channels:
+            perms = ch.permissions_for(guild.me)
+            if perms.create_instant_invite:
+                target_channel = ch
+                break
+
+        if target_channel is None:
+            await interaction.response.send_message(
+                "❌ Botに招待リンクを作成する権限がありません。",
+                ephemeral=True
+            )
+            return
+
+        # 招待リンク作成
+        invite = await target_channel.create_invite(max_age=0, max_uses=0)
+
+        await interaction.response.send_message(
+            f"**{guild.name} の招待リンクはこちらです**\n{invite.url}"
+        )
 
     @tree.command(name="leave", description="このBotを特定のサーバーから退出させます（Botオーナー専用コマンド）")
     async def leave_server(interaction: discord.Interaction, guild_id: str):
