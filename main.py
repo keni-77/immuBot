@@ -342,22 +342,20 @@ https://www.youtube.com/watch?v=A3P4J7TcAk0''')
 
         await interaction.response.send_message(f"🏆**野獣スコアランキング**🏆\n　*今日の野獣王は誰！？*　\n\n{rank_text}")
 
-    @tree.command(name="name_inmu", description="選んだユーザーの淫夢度を測定します")
-    async def name_inmu(interaction: discord.Interaction, user: discord.User):
+    @tree.command(name="inmu_rank", description="サーバー内の淫夢度ランキングを表示します")
+    async def inmu_rank(interaction: discord.Interaction):
 
-        # ① display_name と global_name を取得
-        display = user.display_name
-        globalname = user.global_name or ""  # global_name が None の場合もある
+        await interaction.response.defer()
 
-        # ② 文字列 → バイト列 → 数字列に変換
+        guild = interaction.guild
+        members = guild.members
+
+        # 数値化関数
         def encode_to_numbers(text: str) -> str:
-            encoded = text.encode("utf-8")
-            return "".join(str(b) for b in encoded)
+        encoded = text.encode("utf-8")
+        return "".join(str(b) for b in encoded)
 
-        display_num = encode_to_numbers(display)
-        global_num = encode_to_numbers(globalname)
-
-        # ③ パターン
+        # パターン
         patterns = {
             "81": 81,
             "114": 114,
@@ -366,21 +364,58 @@ https://www.youtube.com/watch?v=A3P4J7TcAk0''')
             "19": 19
         }
 
-        # ④ スコア計算（display と global の合計）
-        score_display = 0
-        score_global = 0
+        results = []
 
-        for key, value in patterns.items():
-            score_display += display_num.count(key) * value
-            score_global += global_num.count(key) * value
+        for member in members:
+            display = member.display_name
+            globalname = member.global_name or ""
 
-        total_score = score_display + score_global
+            display_num = encode_to_numbers(display)
+            global_num = encode_to_numbers(globalname)
 
-        # ⑤ 結果表示
-        await interaction.response.send_message(
-            f"**{display} の淫夢度診断**\n"
-            f"淫夢度：**{total_score}**\n"
+            score_display = 0
+            score_global = 0
+
+            for key, value in patterns.items():
+                score_display += display_num.count(key) * value
+                score_global += global_num.count(key) * value
+
+            total = score_display + score_global
+
+            results.append((member, total))
+
+        # スコア順に並べ替え
+        results.sort(key=lambda x: x[1], reverse=True)
+
+        # Embed 作成
+        embed = discord.Embed(
+            title="淫夢度ランキング",
+            description="（サーバー内）",
+            color=discord.Color.blue()
         )
+
+        # ランキング本文（全部まとめて1フィールド）
+        ranking_text = ""
+
+        medals = ["🥇", "🥈", "🥉"]
+
+        for i, (member, score) in enumerate(results, start=1):
+            if i <= 3:
+                ranking_text += f"{medals[i-1]} **{member.display_name}** — 淫夢度：{score}\n"
+            else:
+                ranking_text += f"{i}位：**{member.display_name}** — 淫夢度：{score}\n"
+
+        embed.add_field(
+            name="ランキング結果",
+            value=ranking_text,
+            inline=False
+        )
+
+        # サムネイルは1位のアイコン
+        embed.set_thumbnail(url=results[0][0].display_avatar.url)
+
+        await interaction.followup.send(embed=embed)
+
 
     @tree.command(name="purge_from", description="指定ユーザーの指定キーワードを含むメッセージをチャンネルから削除（管理者専用）")
     @app_commands.describe(
