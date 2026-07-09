@@ -352,8 +352,8 @@ https://www.youtube.com/watch?v=A3P4J7TcAk0''')
 
         # 数値化関数
         def encode_to_numbers(text: str) -> str:
-        encoded = text.encode("utf-8")
-        return "".join(str(b) for b in encoded)
+            encoded = text.encode("utf-8")
+            return "".join(str(b) for b in encoded)
 
         # パターン
         patterns = {
