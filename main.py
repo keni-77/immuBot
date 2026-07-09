@@ -150,8 +150,28 @@ def run_discord_bot():
         if 'one one four five' in content and 'one four' in content:
             await message.channel.send('いいよ♪こいよ♪')
         if ('そうだよ' in content or 'そだよ' in content or 'そうですよ' in content) and '便乗' not in content:
-            await message.channel.send('''そうだよ（便乗）
-https://c.tenor.com/o7oE1m3mZpAAAAAd/tenor.gif''')
+            mur_icon = "https://keni-77.github.io/immuBot/mur.png"  # MURのアイコン
+
+            # Webhook を探す
+            webhooks = await message.channel.webhooks()
+            webhook = None
+
+            for wh in webhooks:
+                if wh.name == "MUR_webhook":
+                    webhook = wh
+                    break
+
+            # なければ作る
+            if webhook is None:
+                webhook = await message.channel.create_webhook(name="MUR_webhook")
+
+            # Webhookで便乗メッセージ送信
+            await webhook.send(
+                "そうだよ（便乗）",
+                username="MUR先輩",
+                avatar_url=mur_icon
+            )
+
         if '必殺' in content and '発動' in content:
             await message.channel.send('''必殺！野獣の咆哮！
 **ヌゥン！ヘッ！ヘッ！**
