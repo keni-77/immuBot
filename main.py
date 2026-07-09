@@ -154,27 +154,35 @@ def run_discord_bot():
         if 'one one four five' in content and 'one four' in content:
             await message.channel.send('いいよ♪こいよ♪')
         if ('そうだよ' in content or 'そだよ' in content or 'そうですよ' in content) and '便乗' not in content:
-            mur_icon = "https://keni-77.github.io/inmbotweb/mur.png"  # MURのアイコン
+            mur_icon = "https://keni-77.github.io/inmbotweb/mur.png"
 
-            # Webhook を探す
-            webhooks = await message.channel.webhooks()
-            webhook = None
+            # Webhook権限チェック
+            perms = message.channel.permissions_for(message.guild.me)
 
-            for wh in webhooks:
-                if wh.name == "MUR_webhook":
-                    webhook = wh
-                    break
+            if perms.manage_webhooks:
+                # Webhook使える
+                webhooks = await message.channel.webhooks()
+                webhook = None
 
-            # なければ作る
-            if webhook is None:
-                webhook = await message.channel.create_webhook(name="MUR_webhook")
+                for wh in webhooks:
+                    if wh.name == "MUR_webhook":
+                        webhook = wh
+                        break
 
-            # Webhookで便乗メッセージ送信
-            await webhook.send(
-                "そうだよ（便乗）",
-                username="MUR先輩",
-                avatar_url=mur_icon
-            )
+                # なければ作る
+                if webhook is None:
+                    webhook = await message.channel.create_webhook(name="MUR_webhook")
+
+                # Webhookで便乗
+                await webhook.send(
+                    "そうだよ（便乗）",
+                    username="MUR先輩",
+                    avatar_url=mur_icon
+                )
+
+            else:
+                # Webhook使えない → 普通に便乗
+                await message.channel.send("そうだよ（便乗）")
 
         if '必殺' in content and '発動' in content:
             await message.channel.send('''必殺！野獣の咆哮！
