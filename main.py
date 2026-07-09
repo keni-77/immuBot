@@ -384,8 +384,8 @@ https://www.youtube.com/watch?v=A3P4J7TcAk0''')
 
             results.append((member, total))
 
-        # スコア順に並べ替え
-        results.sort(key=lambda x: x[1], reverse=True)
+            # スコア順に並べ替え
+            results.sort(key=lambda x: x[1], reverse=True)
 
         # Embed 作成
         embed = discord.Embed(
@@ -394,16 +394,30 @@ https://www.youtube.com/watch?v=A3P4J7TcAk0''')
             color=discord.Color.blue()
         )
 
-        # ランキング本文（全部まとめて1フィールド）
-        ranking_text = ""
-
         medals = ["🥇", "🥈", "🥉"]
 
-        for i, (member, score) in enumerate(results, start=1):
-            if i <= 3:
-                ranking_text += f"{medals[i-1]} **{member.display_name}** — 淫夢度：{score}\n"
+        ranking_text = ""
+
+        # 順位計算（同点は同順位）
+        last_score = None
+        last_rank = 0
+        count = 0
+
+        for member, score in results[:20]:
+            count += 1
+
+            if score == last_score:
+                rank = last_rank
             else:
-                ranking_text += f"{i}位：**{member.display_name}** — 淫夢度：{score}\n"
+                rank = count
+                last_rank = rank
+                last_score = score
+
+            # メダル付与
+            if rank <= 3:
+                ranking_text += f"{medals[rank-1]} **{member.display_name}** — 淫夢度：{score}\n"
+            else:
+                ranking_text += f"{rank}位：**{member.display_name}** — 淫夢度：{score}\n"
 
         embed.add_field(
             name="ランキング結果",
@@ -412,10 +426,10 @@ https://www.youtube.com/watch?v=A3P4J7TcAk0''')
         )
 
         # サムネイルは1位のアイコン
-        embed.set_thumbnail(url=results[0][0].display_avatar.url)
+        if results:
+            embed.set_thumbnail(url=results[0][0].display_avatar.url)
 
         await interaction.followup.send(embed=embed)
-
 
     @tree.command(name="purge_from", description="指定ユーザーの指定キーワードを含むメッセージをチャンネルから削除（管理者専用）")
     @app_commands.describe(
