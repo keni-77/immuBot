@@ -384,8 +384,8 @@ https://www.youtube.com/watch?v=A3P4J7TcAk0''')
 
             results.append((member, total))
 
-            # スコア順に並べ替え
-            results.sort(key=lambda x: x[1], reverse=True)
+        # スコア順に並べ替え
+        results.sort(key=lambda x: x[1], reverse=True)
 
         # Embed 作成
         embed = discord.Embed(
@@ -402,16 +402,22 @@ https://www.youtube.com/watch?v=A3P4J7TcAk0''')
         last_score = None
         last_rank = 0
         count = 0
+        max_rank = 20
 
-        for member, score in results[:20]:
+        for member, score in results:
             count += 1
 
+            # 同点なら同順位
             if score == last_score:
                 rank = last_rank
             else:
                 rank = count
                 last_rank = rank
                 last_score = score
+
+            # 20位を超えたら終了（ただし20位と同点なら表示）
+            if rank > max_rank:
+                break
 
             # メダル付与
             if rank <= 3:
