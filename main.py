@@ -150,7 +150,7 @@ def run_discord_bot():
         if 'one one four five' in content and 'one four' in content:
             await message.channel.send('いいよ♪こいよ♪')
         if ('そうだよ' in content or 'そだよ' in content or 'そうですよ' in content) and '便乗' not in content:
-            mur_icon = "https://keni-77.github.io/immuBot/mur.png"  # MURのアイコン
+            mur_icon = "https://keni-77.github.io/inmbotweb/mur.png"  # MURのアイコン
 
             # Webhook を探す
             webhooks = await message.channel.webhooks()
