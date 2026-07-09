@@ -325,33 +325,41 @@ https://www.youtube.com/watch?v=A3P4J7TcAk0''')
     @tree.command(name="name_inmu", description="選んだユーザーの淫夢度を測定します")
     async def name_inmu(interaction: discord.Interaction, user: discord.User):
 
+        # ① display_name と global_name を取得
         display = user.display_name
-        encoded = display.encode("utf-8")  # バイト列に変換
-        num_str = "".join(str(b) for b in encoded)  # 数字列に変換
+        globalname = user.global_name or ""  # global_name が None の場合もある
 
-        score = 0
-        hits = []
+        # ② 文字列 → バイト列 → 数字列に変換
+        def encode_to_numbers(text: str) -> str:
+            encoded = text.encode("utf-8")
+            return "".join(str(b) for b in encoded)
 
+        display_num = encode_to_numbers(display)
+        global_num = encode_to_numbers(globalname)
+
+        # ③ パターン
         patterns = {
-            "810": 20,
-            "114514": 40,
-            "364364": 30,
-            "1919": 15
-        }   
+            "81": 81,
+            "114": 114,
+            "514": 514,
+            "364": 364,
+            "19": 19
+        }
+
+        # ④ スコア計算（display と global の合計）
+        score_display = 0
+        score_global = 0
 
         for key, value in patterns.items():
-            count = num_str.count(key)
-            if count > 0:
-                score += value * count
-                hits.append(f"{key}×{count}")
+            score_display += display_num.count(key) * value
+            score_global += global_num.count(key) * value
 
-        hit_text = ", ".join(hits) if hits else "なし"
+        total_score = score_display + score_global
 
+        # ⑤ 結果表示
         await interaction.response.send_message(
             f"**{display} の淫夢度診断**\n"
-            f"淫夢度：{score}\n"
-            f"検出：{hit_text}\n"
-            f"（※表示名をバイト列に変換して無理やり判定しています）"
+            f"淫夢度：**{total_score}**\n"
         )
 
     @tree.command(name="purge_from", description="指定ユーザーの指定キーワードを含むメッセージをチャンネルから削除（管理者専用）")
