@@ -79,11 +79,8 @@ def run_discord_bot():
         content = jaconv.kata2hira(content)
         content = content.lower()
 
-        # 以下は元の語録検出ロジック。検出時に該当ユーザーへ加点する。
-        # 加点値は各分岐ごとに設定（調整可）
-
-        if (('いいぞ' in content or '良いぞ' in content) and 'これ' in content) or (('頭' in content or 'あたま' in content) and 'ますよ' in content) or (('いいよ' in content or '良いよ' in content) and ('こいよ' in content or '来いよ' in content)) or 'んぁ' in content or 'んあ' in content or 'いきそ' in content or ('それ' in content and ('いいよ' in content or '良いよ' in content)) or 'kmr' in content or 'mur' in content or 'tdn' in content or 'ton' in content or 'htn' in content or 'db' in content or 'tnok' in content or 'drvs' in content or 'nsok' in content or 'kbtit' in content or 'ogmm' in content or 'kyn' in content or 'nktidksg' in content or 'akys' in content or 'tknuc' in content or 'sgw' in content or 'ondisk' in content or 'trn' in content or 'kbs' in content or 'eczn' in content or 'ru' in content or 'emt' in content or 'らいらら' in content or 'myn' in content or 'snj' in content or 'bb' in content or 'tkgw' in content or 'mnr' in content or 'popo' in content or 'ndk' in content or 'aknm' in content or 'joker' in content or 'go' in content or 'udk' in content or 'coat' in content or 'krbys' in content or 'skgt' in content or 'どろへどろ' in content or 'しゅばるご' in content or '下北沢' in content or 'しもきたさわ' in content or '114514' in content or 'くしろよ' in content or '810' in content or '野獣' in content or 'やじゅう' in content or 'いきすぎ' in content or '田所' in content or '364' in content or 'みろよ' in content or '見ろよ' in content or '1919' in content or 'いくいく' in content or 'ますね' in content or 'いんむ' in content or 'いんみゅ' in content or '真夏' in content or 'まなつ' in content or 'おなしゃす' in content or 'せんせんしゃ' in content or '菅野美穂' in content or 'かんのみほ' in content or 'でますよ' in content or '出ますよ' in content or 'くいあらためて' in content or '悔い改めて' in content or '見とけよ' in content or 'みとけよ' in content or 'まずいですよ' in content or '小並感' in content or 'ありがとなす' in content or 'よつんゔぁい' in content or 'いましめ' in content or '戒め' in content or 'ばっとまん' in content or 'ばっどまん' in content or 'badman' in content or 'んにゃぴ' in content or 'ぶっちっぱ' in content:
-            await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
+        if ('yaju' in content and '&' not in content) or ('王道' in content and 'そーぷ' in content and 'ゆく' not in content and 'いく' not in content and '征く' not in content and '行く' not in content) or (('いいぞ' in content or '良いぞ' in content) and 'これ' in content) or (('頭' in content or 'あたま' in content) and 'ますよ' in content) or (('いいよ' in content or '良いよ' in content) and ('こいよ' in content or '来いよ' in content)) or 'んぁ' in content or 'んあ' in content or 'いきそ' in content or ('それ' in content and ('いいよ' in content or '良いよ' in content)) or 'kmr' in content or 'mur' in content or 'tdn' in content or 'ton' in content or 'htn' in content or 'db' in content or 'tnok' in content or 'drvs' in content or 'nsok' in content or 'kbtit' in content or 'ogmm' in content or 'kyn' in content or 'nktidksg' in content or 'akys' in content or 'tknuc' in content or 'sgw' in content or 'ondisk' in content or 'trn' in content or 'kbs' in content or 'eczn' in content or 'ru' in content or 'emt' in content or 'らいらら' in content or 'myn' in content or 'snj' in content or 'bb' in content or 'tkgw' in content or 'mnr' in content or 'popo' in content or 'ndk' in content or 'aknm' in content or 'joker' in content or 'go' in content or 'udk' in content or 'coat' in content or 'krbys' in content or 'skgt' in content or 'どろへどろ' in content or 'しゅばるご' in content or '下北沢' in content or 'しもきたさわ' in content or '114514' in content or 'くしろよ' in content or '810' in content or '野獣' in content or 'やじゅう' in content or 'いきすぎ' in content or '田所' in content or '364' in content or 'みろよ' in content or '見ろよ' in content or '1919' in content or 'いくいく' in content or 'ますね' in content or 'いんむ' in content or 'いんみゅ' in content or '真夏' in content or 'まなつ' in content or 'おなしゃす' in content or 'せんせんしゃ' in content or '菅野美穂' in content or 'かんのみほ' in content or 'でますよ' in content or '出ますよ' in content or 'くいあらためて' in content or '悔い改めて' in content or '見とけよ' in content or 'みとけよ' in content or 'まずいですよ' in content or '小並感' in content or 'ありがとなす' in content or 'よつんゔぁい' in content or 'いましめ' in content or '戒め' in content or 'ばっとまん' in content or 'ばっどまん' in content or 'badman' in content or 'んにゃぴ' in content or 'ぶっちっぱ' in content:
+            await message.channel.send('（これ指摘したら淫夢厨ってバレるな…）')
             yaju_scores[user_id] = yaju_scores.get(user_id, 0) + 50
 
         if '14' in content and '3000' in content:
@@ -95,14 +92,10 @@ def run_discord_bot():
             yaju_scores[user_id] = yaju_scores.get(user_id, 0) + 30
 
         if '屋上' in content or 'まずうち' in content or 'てかない' in content:
-            await message.channel.send('まずうちさぁ、屋上あんだけど...焼いてかない？')
+            await message.channel.send('まずうちさぁ、屋上あんだけど…焼いてかない？')
             yaju_scores[user_id] = yaju_scores.get(user_id, 0) + 40
 
-        if '胸' in content:
-            await message.channel.send('ファ！？')
-            yaju_scores[user_id] = yaju_scores.get(user_id, 0) + 20
-
-        if 'ふぁ' in content:
+        if '胸' in content or 'ふぁ' in content:
             await message.channel.send('ﾌｧｯ!?(驚愕)ｳｰﾝ...(心停止)')
             yaju_scores[user_id] = yaju_scores.get(user_id, 0) + 20
 
@@ -131,8 +124,10 @@ def run_discord_bot():
             yaju_scores[user_id] = yaju_scores.get(user_id, 0) + 30
 
         if 'ここあ' in content and 'らいおん' in content or 'ここ' in content and ('あらえよ' in content or '洗えよ' in content):
-            await message.channel.send('あ、わかりました...')
+            await message.channel.send('あ、わかりました…')
             yaju_scores[user_id] = yaju_scores.get(user_id, 0) + 30
+        elif 'ここ' in content:
+            await message.channel.send('こ↑こ↓')
 
         if ('みて' in content or '見て' in content) and 'ない' in content:
             await message.channel.send('嘘つけ絶対見てたゾ')
@@ -158,11 +153,15 @@ def run_discord_bot():
                 await message.channel.send('ソープ系ですか')
                 yaju_scores[user_id] = yaju_scores.get(user_id, 0) + 40
 
+        if ('ですか' in content or '王道' in content) and 'ゆく' not in content and 'いく' not in content and '征く' not in content and '行く' not in content and 'そーぷ' not in content:
+            await message.channel.send('そうですねぇ...やっぱり僕は王道を征く...ソープ系ですか（王者の風格）')
+            yaju_scores[user_id] = yaju_scores.get(user_id, 0) + 30
+
         if 'じゃけん' in content:
             await message.channel.send('おっ、そうだな（適当）')
             yaju_scores[user_id] = yaju_scores.get(user_id, 0) + 20
 
-        if 'お' in content and 'そうだな' in content:
+        if 'そうだな' in content:
             await message.channel.send('あっそうだ　おいKMRァ！（唐突）')
             yaju_scores[user_id] = yaju_scores.get(user_id, 0) + 25
 
@@ -173,10 +172,6 @@ def run_discord_bot():
         if 'てるか' in content:
             await message.channel.send('バッチェ冷えてますよ')
             yaju_scores[user_id] = yaju_scores.get(user_id, 0) + 20
-
-        if 'ですか' in content:
-            await message.channel.send('そうですねぇ...やっぱり僕は王道を征く...ソープ系ですか（王者の風格）')
-            yaju_scores[user_id] = yaju_scores.get(user_id, 0) + 30
 
         if ('丘' in content or '岡' in content or 'おか' in content) and 'の' in content and ('下' in content or 'した' in content):
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな...）')
@@ -234,7 +229,7 @@ def run_discord_bot():
             await message.channel.send('YAJU&U！')
             yaju_scores[user_id] = yaju_scores.get(user_id, 0) + 30
 
-        if 'yaju' in content and '&' in content and 'u' in content:
+        if 'yaju' in content and '&' in content:
             await message.channel.send('野獣先輩♪')
             yaju_scores[user_id] = yaju_scores.get(user_id, 0) + 50
 
@@ -282,16 +277,50 @@ def run_discord_bot():
                 yaju_scores[user_id] = yaju_scores.get(user_id, 0) + 80
 
         if '必殺' in content and '発動' in content:
-            await message.channel.send('''必殺！野獣の咆哮！
+            yaju_icon = "https://keni-77.github.io/inmbotweb/yaju.png"
+
+            # Webhook権限チェック
+            perms = message.channel.permissions_for(message.guild.me)
+
+            if perms.manage_webhooks:
+                # Webhook使える
+                webhooks = await message.channel.webhooks()
+                webhook = None
+
+                for wh in webhooks:
+                    if wh.name == "yaju_webhook":
+                        webhook = wh
+                        break
+
+                # なければ作る
+                if webhook is None:
+                    webhook = await message.channel.create_webhook(name="yaju_webhook")
+
+                # Webhookで便乗
+                await webhook.send(
+                    '''必殺！野獣の咆哮！
 **ヌゥン！ヘッ！ヘッ！**
 **ア゛ア゛ア゛ア゛ァ゛ァ゛ァ゛ァ゛**
 **ア゛↑ア゛↑ア゛↑ア゛↑ア゛ア゛ア゛ァ゛ァ゛ァ゛ァ゛！！！！**
 **ウ゛ア゛ア゛ア゛ア゛ア゛ア゛ァ゛ァ゛ァ゛ァ゛ァ゛ァ゛ァ！！！！！**
 **フ ウ゛ウ゛ウ゛ゥ゛ゥ゛ゥ゛ン！！！！**
 **フ ウ゛ゥ゛ゥ゛ゥン！！！！(大迫真)**
-***（※音量注意）***
-https://www.youtube.com/watch?v=A3P4J7TcAk0''')
-            yaju_scores[user_id] = yaju_scores.get(user_id, 0) + 5000
+***（※音量注意）***''',
+                    username="野獣先輩",
+                    avatar_url=yaju_icon
+                )
+                yaju_scores[user_id] = yaju_scores.get(user_id, 0) + 5000
+            else:
+                # Webhook使えない
+                await message.channel.send('''必殺！野獣の咆哮！
+**ヌゥン！ヘッ！ヘッ！**
+**ア゛ア゛ア゛ア゛ァ゛ァ゛ァ゛ァ゛**
+**ア゛↑ア゛↑ア゛↑ア゛↑ア゛ア゛ア゛ァ゛ァ゛ァ゛ァ゛！！！！**
+**ウ゛ア゛ア゛ア゛ア゛ア゛ア゛ァ゛ァ゛ァ゛ァ゛ァ゛ァ゛ァ！！！！！**
+**フ ウ゛ウ゛ウ゛ゥ゛ゥ゛ゥ゛ン！！！！**
+**フ ウ゛ゥ゛ゥ゛ゥン！！！！(大迫真)**
+***（※音量注意）***''')
+                yaju_scores[user_id] = yaju_scores.get(user_id, 0) + 1000
     
     @tree.command(name="leave", description="このBotを特定のサーバーから退出させます（Botオーナー専用コマンド）")
     async def leave_server(interaction: discord.Interaction, guild_id: str):
