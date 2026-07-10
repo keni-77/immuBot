@@ -375,7 +375,7 @@ https://www.youtube.com/watch?v=A3P4J7TcAk0''')
         # Embed 作成
         embed = discord.Embed(
             title="淫夢度ランキング（サーバー内）",
-            description="名前由来 + メッセージ由来 + 野獣スコア（グローバル） の合算",
+            description="合計スコア",
             color=discord.Color.blue()
         )
 
@@ -471,12 +471,6 @@ https://www.youtube.com/watch?v=A3P4J7TcAk0''')
         if result == special:
             await interaction.response.send_message(f"結果: {result}\n\n🎉**いい世、来いよ！**🎉")
             yaju_scores[user_id] = yaju_scores.get(user_id, 0) + 114514
-            return
-        if result == zorome1 or result == zorome3 or result == zorome4 or result == zorome5 or result == zorome6 or result == zorome9:
-            # ここには到達しないはず（ゾロ目は上で処理）だが念のための保険
-            # 既存の固定点を付与
-            await interaction.response.send_message(f"結果: {result}\n\n🎉**ゾロ目だゾ**🎉")
-            yaju_scores[user_id] = yaju_scores.get(user_id, 0) + 111111
             return
         if result == ikuikuiku:
             await interaction.response.send_message(f"結果: {result}\n\n🎉**イキスギィ！**🎉")
