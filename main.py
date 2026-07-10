@@ -203,41 +203,6 @@ https://www.youtube.com/watch?v=A3P4J7TcAk0''')
 
         await interaction.response.send_message(f"**参加中のサーバー（{len(guilds)}件）**\n{text}")
     
-    @tree.command(name="invite", description="Botが参加しているサーバーの招待リンクを送ります")
-    async def invite(interaction: discord.Interaction, guild_id: str):
-
-        # 数字チェック
-        if not guild_id.isdigit():
-            await interaction.response.send_message("サーバーIDは数字で入力してください。", ephemeral=True)
-            return
-
-        guild = interaction.client.get_guild(int(guild_id))
-        if guild is None:
-            await interaction.response.send_message("そのサーバーは見つかりませんでした。", ephemeral=True)
-            return
-
-        # 招待リンクを作れるチャンネルを探す
-        target_channel = None
-        for ch in guild.text_channels:
-            perms = ch.permissions_for(guild.me)
-            if perms.create_instant_invite:
-                target_channel = ch
-                break
-
-        if target_channel is None:
-            await interaction.response.send_message(
-                "❌ Botに招待リンクを作成する権限がありません。",
-                ephemeral=True
-            )
-            return
-
-        # 招待リンク作成
-        invite = await target_channel.create_invite(max_age=0, max_uses=0)
-
-        await interaction.response.send_message(
-            f"**{guild.name} の招待リンクはこちらです**\n{invite.url}"
-        )
-
     @tree.command(name="leave", description="このBotを特定のサーバーから退出させます（Botオーナー専用コマンド）")
     async def leave_server(interaction: discord.Interaction, guild_id: str):
 
