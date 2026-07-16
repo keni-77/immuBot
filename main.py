@@ -337,47 +337,6 @@ def run_discord_bot():
 **フ ウ゛ゥ゛ゥ゛ゥン！！！！(大迫真)**
 ***（※音量注意）***''')
                 yaju_scores[user_id] = yaju_scores.get(user_id, 0) + 10
-    
-    @tree.command(name="leave", description="このBotを特定のサーバーから退出させます（Botオーナー専用コマンド）")
-    async def leave_server(interaction: discord.Interaction, guild_id: str):
-
-        # Bot のオーナーだけ使える
-        if interaction.user.id != 1367077549363953737:
-            await interaction.response.send_message("このコマンドは許可されていません。", ephemeral=True)
-            return
-
-        # まず defer でインタラクション確保
-        await interaction.response.defer(ephemeral=True)
-
-        # 数字チェック
-        if not guild_id.isdigit():
-            await interaction.followup.send("サーバーIDは数字で入力してください。", ephemeral=True)
-            return
-
-        # サーバーチェック
-        guild = interaction.client.get_guild(int(guild_id))
-        if guild is None:
-            await interaction.followup.send("そのサーバーは見つかりませんでした。", ephemeral=True)
-            return
-
-        # 退出メッセージ送信（権限不足でも無視）
-        try:
-            # システムチャンネル or 最初に書き込めるテキストチャンネル
-            send_channel = guild.system_channel or next(
-                (ch for ch in guild.text_channels if ch.permissions_for(guild.me).send_messages),
-                None
-            )
-            if send_channel:
-                await send_channel.send(f"**{guild.name}** から退出します。")
-        except:
-            pass
-
-        # サーバー退出
-        try:
-            await guild.leave()
-            await interaction.followup.send(f"サーバー **{guild.name}** から退出しました。")
-        except discord.Forbidden:
-            await interaction.followup.send("権限不足で退出できませんでした。Bot のロールを一番上にしてください。", ephemeral=True)
 
     @tree.command(name="inmu_rank", description="サーバー内の淫夢度ランキングを表示します")
     async def inmu_rank(interaction: discord.Interaction):
