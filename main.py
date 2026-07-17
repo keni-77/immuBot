@@ -83,6 +83,9 @@ def run_discord_bot():
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな…）')
             yaju_scores[user_id] = yaju_scores.get(user_id, 0) + 10
 
+        if 'テスト' in content:
+            await message.add_reaction("<:kore:1527684033226735727>")
+        
         if '14' in content and '3000' in content:
             await message.channel.send('うせやろ！？')
             yaju_scores[user_id] = yaju_scores.get(user_id, 0) + 10
@@ -182,7 +185,7 @@ def run_discord_bot():
             yaju_scores[user_id] = yaju_scores.get(user_id, 0) + 10
 
         if 'そうだな' in content:
-            await message.channel.send('あっそうだ　おいKMRァ！（唐突）')
+            await message.channel.send('あっそうだ おいKMRァ！（唐突）')
             yaju_scores[user_id] = yaju_scores.get(user_id, 0) + 10
 
         if 'あ' in content and 'そうだ' in content:
