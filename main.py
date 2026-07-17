@@ -83,8 +83,23 @@ def run_discord_bot():
             await message.channel.send('（これ指摘したら淫夢厨ってバレるな…）')
             yaju_scores[user_id] = yaju_scores.get(user_id, 0) + 10
 
-        if 'テスト' in content:
-            await message.add_reaction("<:kore:1527684033226735727>")
+        if "テスト" in content:
+            guild = message.guild
+            EMOJI_NAME = "kore"
+            EMOJI_ID = 1527684033226735727  # Bot絵文字のID
+            EMOJI_URL = f"https://cdn.discordapp.com/emojis/{EMOJI_ID}.png"
+
+            emoji = discord.utils.get(guild.emojis, name=EMOJI_NAME)
+            if emoji is None:
+                async with aiohttp.ClientSession() as session:
+                    async with session.get(EMOJI_URL) as resp:
+                        img_bytes = await resp.read()
+                emoji = await guild.create_custom_emoji(
+                    name=EMOJI_NAME,
+                    image=img_bytes
+                )
+            
+            await message.add_reaction(emoji)
         
         if '14' in content and '3000' in content:
             await message.channel.send('うせやろ！？')
