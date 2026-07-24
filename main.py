@@ -161,7 +161,7 @@ def run_discord_bot():
             await message.channel.send('あ、いいじゃん　入れたろ♪')
             yaju_scores[user_id] = yaju_scores.get(user_id, 0) + 10
 
-        if 'とかって' in content or 'ますか' in content:
+        if 'とかって' in content or ('ますか' in content and 'ますから' not in content):
             await message.channel.send('やりますねぇ！')
             yaju_scores[user_id] = yaju_scores.get(user_id, 0) + 10
 
