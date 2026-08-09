@@ -476,29 +476,29 @@ def run_discord_bot():
             d = result[0]
             # 例: d=3 -> score = 333333
             score = int(str(d) * 6)
-            await interaction.response.send_message(f"結果: {result}\n\n🎉**ゾロ目だゾ**🎉\n獲得点: {score}点")
+            await interaction.response.send_message(f"@everyone \n結果: {result}\n\n🎉**ゾロ目だゾ**🎉\n獲得点: {score}点")
             yaju_scores[user_id] = yaju_scores.get(user_id, 0) + score
             return
 
         # 次に既存の特別並びを判定（順序は既存ロジックに合わせる）
         if result == special:
-            await interaction.response.send_message(f"結果: {result}\n\n🎉**いい世、来いよ！**🎉")
+            await interaction.response.send_message(f"@everyone \n結果: {result}\n\n🎉**いい世、来いよ！**🎉")
             yaju_scores[user_id] = yaju_scores.get(user_id, 0) + 114514
             return
         if result == ikuikuiku:
-            await interaction.response.send_message(f"結果: {result}\n\n🎉**イキスギィ！**🎉")
+            await interaction.response.send_message(f"@everyone \n結果: {result}\n\n🎉**イキスギィ！**🎉")
             yaju_scores[user_id] = yaju_scores.get(user_id, 0) + 191919
             return
         if result == sikosikosiko:
-            await interaction.response.send_message(f"結果: {result}\n（放送禁止）\n🎉**やりますねぇ！**🎉")
+            await interaction.response.send_message(f"@everyone \n結果: {result}\n（放送禁止）\n🎉**やりますねぇ！**🎉")
             yaju_scores[user_id] = yaju_scores.get(user_id, 0) + 454545
             return
         if result == gosigosigosi:
-            await interaction.response.send_message(f"結果: {result}\n（ごしごしごし…）\n🎉**ココアライオン**🎉")
+            await interaction.response.send_message(f"@everyone \n結果: {result}\n（ごしごしごし…）\n🎉**ココアライオン**🎉")
             yaju_scores[user_id] = yaju_scores.get(user_id, 0) + 545454
             return
         if result == miroyomiroyo:
-            await interaction.response.send_message(f"結果: {result}\n\n🎉**見ろよみろよ！**🎉")
+            await interaction.response.send_message(f"@everyone \n結果: {result}\n\n🎉**見ろよみろよ！**🎉")
             yaju_scores[user_id] = yaju_scores.get(user_id, 0) + 364364
             return
 
